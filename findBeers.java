@@ -16,7 +16,7 @@ import java.lang.Math;
 	
 	@param	posAtts: array holding desired attributes in a beer
 	@param  negAtts: array holding undesired attributes of beer
-	@param	all	   : array holding all beers in the program
+	@param	all    : array holding all beers in the program
 	@param  omits  : array holding beers to not select
 	
 	@return        : array holding all matched beers
