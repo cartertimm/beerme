@@ -1,0 +1,101 @@
+name,bitterness,flavor intensity,aroma intensity,color,ABV
+Alaskan Amber,2,5,3,7,5
+Alaskan White,2,4,3,3,5
+Bellevue Brewing 425 Pale Ale,4,4,7,4,5
+Bellevue Brewing Bohemian Pilsner,3,3,1,2,5
+Bellevue Brewing ESB,3,7,5,5,6
+Bellevue Brewing IPA,7,6,8,7,7
+Bellevue Brewing Oatmeal Stout,4,8,9,9,6
+Bellevue Brewing Scotch Ale,3,7,6,7,8
+Bridgeport Hop Czar Imperial IPA,9,10,10,7,8
+Bridgeport IPA,5,8,5,6,6
+Bridgeport Kingpin Double Red Ale,7,5,7,7,8
+Deschutes Big Rig Ale,5,4,3,5,6
+Deschutes Black Butte Porter,3,7,3,10,5
+Deschutes Chainbreaker White IPA,6,6,6,3,6
+Deschutes Down 'N Dirty IPA,8,7,4,5,6
+Deschutes Inversion IPA,8,6,4,6,7
+Deschutes Mirror Pond Pale Ale,4,6,4,5,5
+Deschutes Obsidian Stout,6,5,5,10,6
+Deschutes River Ale,3,3,2,4,4
+Elysian Avatar IPA,4,6,7,5,6
+Elysian Dragonstooth Stout,5,6,8,10,8
+Elysian Immortal IPA,6,7,6,5,6
+Elysian Loser Pale Ale,5,7,5,4,7
+Elysian Men's Room Red,5,7,7,7,6
+Elysian Space Dust IPA,7,6,6,6,8
+Fremont Interurban IPA,8,8,7,7,6
+Fremont Session Pale Ale,5,6,4,4,5
+Fremont Universale Pale Ale,3,5,6,4,6
+Fremont Wandering Wheat,2,3,4,2,4
+Full Sail Amber Ale,3,5,3,7,6
+Full Sail Classic IPA,6,5,4,4,6
+Full Sail Hop Pursuit IPA,7,6,4,4,7
+Full Sail Pilsner,6,3,2,2,6
+Georgetown Bodhizafa IPA,8,6,4,6,7
+Georgetown Chopper's Red Ale,6,7,4,7,6
+Georgetown Johnny Utah Pale Ale,5,6,3,5,6
+Georgetown Lucille IPA,9,6,6,4,7
+Georgetown Manny's Pale Ale,4,7,6,7,5
+Georgetown Porter,4,8,7,9,6
+Georgetown Roger's Pilsner,3,4,5,3,5
+Grand Teton Brewing Old Faithful Ale,2,2,2,2,5
+Laughing Dog Cream Ale,1,4,4,4,5
+Laughing Dog IPA,7,6,3,5,6
+Laughing Dog Pale Ale,3,6,3,6,6
+Laughing Dog Sneaky Pete,9,8,6,6,10
+Laurelwood Free Range Red Ale,6,6,6,8,6
+Laurelwood Mother Lode Golden Ale,3,3,3,4,5
+Laurelwood Red Elephant IPA,7,7,7,7,7
+Laurelwood Tree Hugger Porter,5,8,6,10,6
+Laurelwood Workhorse IPA,8,7,5,7,8
+Ninkasi Total Domination IPA,7,8,8,6,7
+Ninkasi Tricerahops Double IPA,10,9,9,5,8
+No-Li Amber Ale,1,7,5,5,5
+No-Li Born & Raised IPA,9,7,6,8,7
+No-Li Crony Brown Ale,3,5,5,7,5
+No-Li Jet Star Imperial IPA,10,10,7,8,8
+No-Li Mosh Pit Cherry Ale,2,7,4,5,8
+No-Li Poser Pale Ale,2,6,2,4,5
+No-Li Rise and Grind Coffee Stout,2,8,9,7,6
+No-Li Slacker Brass Ale,2,4,7,5,6
+No-Li Spin Cycle Red,5,5,5,6,6
+No-Li Switch Hitter Golden Ale,2,2,4,2,5
+No-Li Wrecking Ball Imperial Stout,10,10,10,10,10
+Olympia,1,1,1,1,4
+Pike Extra Stout,7,8,9,10,7
+Pike IPA,6,6,7,6,6
+Pike Monk's Uncle Tripel Ale,3,7,6,1,9
+Pike Naughty Nellie Golden Ale,2,6,6,3,6
+Pike Pale Ale,3,7,6,7,5
+Pike Space Needle Golden IPA,6,6,7,5,6
+Ranier,1,1,1,1,4
+Red Hook Audible Ale,2,5,5,4,5
+Red Hook Blackhook,3,8,7,10,4
+Red Hook ECS Blonde,2,4,5,3,5
+Red Hook ESB,3,7,4,5,6
+Red Hook ESL,3,5,3,2,5
+Red Hook Long Hammer IPA,5,7,6,6,6
+Red Hook Winterhook,5,7,6,7,6
+Rogue Beard Beer,3,5,8,4,5
+Rogue Chocolate Stout,7,6,8,10,6
+Rogue Dead Guy Ale,4,8,4,6,7
+Rogue Mocha Porter,5,6,6,9,6
+Rogue Yellow Snow IPA,8,8,6,5,7
+Session Lager,2,3,3,1,5
+Sockeye Angels Perch Amber,2,6,3,6,5
+Sockeye Dagger Falls IPA,10,10,4,5,7
+Sockeye Galena Gold,3,3,4,1,5
+Sockeye Hell-Diver Pale Ale,8,7,3,5,6
+Sockeye High Lakes Session IPA,8,7,5,4,4
+Sockeye Powerhouse Porter,2,6,7,10,6
+Sockeye Woolybugger Wheat,1,2,3,4,4
+Two Beers Crooked Belgian Wit,1,2,3,3,5
+Two Beers EVO IPA,7,7,7,6,6
+Two Beers Immersion Amber,3,4,6,5,5
+Two Beers Off Trail Pale Ale,3,4,7,3,5
+Two Beers Persnickety Pale Ale,4,6,5,6,6
+Two Beers Pilchuk Pilsner,2,3,3,2,4
+Two Beers SODO Brown,2,4,4,9,5
+Two Beers Wonderland Trail IPA,8,7,5,7,7
+Widmer Hefeweizen,3,4,3,2,5
