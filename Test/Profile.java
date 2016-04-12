@@ -1,5 +1,6 @@
 
 import java.util.ArrayList;
+import java.lang.Math;
 
 public class Profile{
 	
@@ -105,8 +106,10 @@ public class Profile{
 			}
 		}
 		
-		for (int i = 0; i < 5; i++)
+		for (int i = 0; i < 5; i++){
 			posAtts[i] = posAtts[i] / likes.length;
+			posAtts[i] = (int) Math.round(posAtts[i]);
+		}
 		
 		return posAtts;
 	}
@@ -126,8 +129,10 @@ public class Profile{
 			}
 		}
 		
-		for (int i = 0; i < 5; i++)
+		for (int i = 0; i < 5; i++){
 			negAtts[i] = negAtts[i] / dislikes.length;
+			negAtts[i] = (int) Math.round(negAtts[i]);
+		}
 		
 		return negAtts;
 	}
