@@ -43,21 +43,20 @@ public class Discover{
 	
 	@param	posAtts: array holding desired attributes in a beer
 	@param  negAtts: array holding undesired attributes of beer
-	@param	all    : array holding all beers in the program
 	@param  omits  : array holding beers to not select
 	
 	@return        : array holding all matched beers
 	*/
-	Beer[] findBeers(int[] posAtts, int[] negAtts, Beer[] all, Beer[] omits){
+	Beer[] findBeers(int[] posAtts, int[] negAtts, Beer[] omits){
 		ArrayList<Beer> matchedBeers = new ArrayList<Beer>();	// used to hold matched beers
 		
 		/*
 			Loop through all beers.
 		*/
 		
-		for (int i = 0; i < all.length; i++){
+		for (int i = 0; i < beerList.length; i++){
 			int[] difference = {0, 0, 0, 0, 0};	// both pos and neg differences
-			int[] curAtts = all[i].getAttributes();	// current attributes
+			int[] curAtts = beerList[i].getAttributes();	// current attributes
 			
 			/*
 				Calculate the difference between positive attributes and those of
@@ -106,7 +105,7 @@ public class Discover{
 				
 				boolean inOmits = false;	// omits list flag
 				for (int j = 0; j < omits.length; j++){
-					if (all[i].getName().equals(omits[j].getName()){
+					if (beerList[i].getName().equals(omits[j].getName()){
 						inOmits = true;
 						break;
 					}
@@ -162,7 +161,7 @@ public class Discover{
 					}
 					
 					if (!negMatch)
-						matchedBeers.add(all[i]);
+						matchedBeers.add(beerList[i]);
 				}
 			}
 		}
@@ -171,6 +170,10 @@ public class Discover{
 		return matchedBeers.toArray();
 	}
 	
-	private Beer[] beerList;
+	public Beer[] getBeerList(){
+		return beerList;
+	}
+	
+	private static Beer[] beerList;
 	private FileManager fileAccess;
 }

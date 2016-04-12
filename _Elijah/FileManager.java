@@ -8,9 +8,6 @@ public class FileManager{
 	//used only to get initial attributes to load beers into beerList
 	int[][] getAttributes()
 	
-	//used in class Discover for the loop
-	int getNumberOfBeers()
-	
 	//used to add a beer (only name is necessary) to likes.txt, dislikes.txt, or onTap.txt
 	void add(String name, String filename)
 	
