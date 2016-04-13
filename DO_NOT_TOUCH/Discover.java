@@ -7,7 +7,7 @@ public class Discover{
 	
 	//constructor that reads through beerList.csv and loads into an array
 	public Discover(){
-		fileAccess = new FileManager();
+		FileManager fileAccess = new FileManager();
 		ArrayList<Beer> beers = new ArrayList<Beer>();
 		String[] names = fileAccess.getNames("beerList.csv");
 		int[][] attributes = fileAccess.getAttributes;
@@ -22,7 +22,7 @@ public class Discover{
 	public Beer[] search(String name){
 		ArrayList<Beer> matches = new ArrayList<Beer>();
 		for (int i = 0; i < beerList.length; i++){
-			if (beerList[i].getName().contains(name))
+			if (beerList[i].getName().toUpperCase().contains(name.toUpperCase()))
 				matches.add(beerList[i]);
 		}
 		matches.trimToSize();
@@ -175,5 +175,4 @@ public class Discover{
 	}
 	
 	private static Beer[] beerList;
-	private FileManager fileAccess;
 }

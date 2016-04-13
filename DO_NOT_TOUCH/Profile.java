@@ -64,31 +64,37 @@ public class Profile{
 	public void addLike(Beer beer){
 		likes.add(beer);
 		likes.trimToSize();
+		fileAccess.add(beer.getName(), "likes.txt");
 	}
 	
 	public void addDislike(Beer beer){
 		dislikes.add(beer);
 		dislikes.trimToSize();
+		fileAccess.add(beer.getName(), "dislikes.txt");
 	}
 	
 	public void addOnTap(Beer beer){
 		onTap.add(beer);
 		onTap.trimtoSize();
+		fileAccess.add(beer.getName(), "onTap.txt");
 	}
 	
 	public void removeLike(Beer beer){
 		like.remove(Beer);
 		like.trimToSize();
+		fileAccess.remove(beer.getName(), "likes.txt");
 	}
 	
 	public void removeDislike(Beer beer){
 		dislike.remove(beer);
 		dislike.trimToSize();
+		fileAccess.remove(beer.getName(), "dislikes.txt");
 	}
 	
 	public void removeOnTap(Beer beer){
 		onTap.remove(beer);
 		onTap.trimToSize();
+		fileAccess.remove(beer.getName(), "onTap.txt");
 	}
 	
 	public int[] getPositiveAttributes(){
@@ -107,7 +113,7 @@ public class Profile{
 		}
 		
 		for (int i = 0; i < 5; i++){
-			posAtts[i] = posAtts[i] / likes.length;
+			posAtts[i] = posAtts[i] / likes.size();
 			posAtts[i] = (int) Math.round(posAtts[i]);
 		}
 		
@@ -118,7 +124,7 @@ public class Profile{
 		int[] negAtts = new int[5];
 		if (dislikes.size() == 0){
 			for (int i = 0; i < 5; i++)
-				negAtts[i] = 5;
+				negAtts[i] = 64;
 			return negAtts;
 		}
 		
@@ -130,7 +136,7 @@ public class Profile{
 		}
 		
 		for (int i = 0; i < 5; i++){
-			negAtts[i] = negAtts[i] / dislikes.length;
+			negAtts[i] = negAtts[i] / dislikes.size();
 			negAtts[i] = (int) Math.round(negAtts[i]);
 		}
 		
@@ -153,27 +159,3 @@ public class Profile{
 	private ArrayList<Beer> onTap;
 	private FileManager fileAccess;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

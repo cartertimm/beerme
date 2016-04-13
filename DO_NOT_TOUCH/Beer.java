@@ -17,6 +17,6 @@ public class Beer{
 		return attributes;
 	}	
 	
-	private String name;
-	private int[] attributes;
+	private final String name;
+	private final int[] attributes;
 }
