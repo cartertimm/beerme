@@ -146,7 +146,7 @@ public class Discover{
 					
 					boolean negMatch = false;	// negative match flag
 					for (int j = 0; j < 3; j++){
-						if (difference[j] > j + 1){
+						if (difference[j] > j){
 							negMatch = true;
 							break;
 						}
