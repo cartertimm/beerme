@@ -8,6 +8,8 @@ import java.awt.Font;
 import java.awt.GridBagLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.AdjustmentEvent;
+import java.awt.event.AdjustmentListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -19,6 +21,8 @@ import javax.swing.JSlider;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 
 import java.io.FileNotFoundException;
 import java.util.Collections;
@@ -262,6 +266,11 @@ public class BeerMeGUI extends JFrame
 		bitternessPanel.add(bitternessSlider, BorderLayout.CENTER);
 		bitternessLabel.setHorizontalAlignment(JLabel.CENTER);
 		bitternessPanel.add(bitternessLabel, BorderLayout.SOUTH);
+		bitternessSlider.addChangeListener(new ChangeListener() {
+		      public void stateChanged(ChangeEvent e) {
+		          autoAdjustBeers();
+		        }
+		      });
 		sliderPanel.add(bitternessPanel);
 		
 		flavorPanel.setLayout(new BorderLayout());
@@ -270,6 +279,11 @@ public class BeerMeGUI extends JFrame
 		flavorPanel.add(flavorSlider, BorderLayout.CENTER);
 		flavorLabel.setHorizontalAlignment(JLabel.CENTER);
 		flavorPanel.add(flavorLabel, BorderLayout.SOUTH);
+		flavorSlider.addChangeListener(new ChangeListener() {
+		      public void stateChanged(ChangeEvent e) {
+		          autoAdjustBeers();
+		        }
+		      });
 		sliderPanel.add(flavorPanel);
 		
 		aromaPanel.setLayout(new BorderLayout());
@@ -278,6 +292,11 @@ public class BeerMeGUI extends JFrame
 		aromaPanel.add(aromaSlider, BorderLayout.CENTER);
 		aromaLabel.setHorizontalAlignment(JLabel.CENTER);
 		aromaPanel.add(aromaLabel, BorderLayout.SOUTH);
+		aromaSlider.addChangeListener(new ChangeListener() {
+		      public void stateChanged(ChangeEvent e) {
+		          autoAdjustBeers();
+		        }
+		      });
 		sliderPanel.add(aromaPanel);
 		
 		colorPanel.setLayout(new BorderLayout());
@@ -286,6 +305,11 @@ public class BeerMeGUI extends JFrame
 		colorPanel.add(colorSlider, BorderLayout.CENTER);
 		colorLabel.setHorizontalAlignment(JLabel.CENTER);
 		colorPanel.add(colorLabel, BorderLayout.SOUTH);
+		colorSlider.addChangeListener(new ChangeListener() {
+		      public void stateChanged(ChangeEvent e) {
+		          autoAdjustBeers();
+		        }
+		      });
 		sliderPanel.add(colorPanel);
 		
 		abvPanel.setLayout(new BorderLayout());
@@ -294,6 +318,11 @@ public class BeerMeGUI extends JFrame
 		abvPanel.add(abvSlider, BorderLayout.CENTER);
 		abvLabel.setHorizontalAlignment(JLabel.CENTER);
 		abvPanel.add(abvLabel, BorderLayout.SOUTH);
+		abvSlider.addChangeListener(new ChangeListener() {
+		      public void stateChanged(ChangeEvent e) {
+		          autoAdjustBeers();
+		        }
+		      });
 		sliderPanel.add(abvPanel);
 		
 		sliderPanel.add(submitFilter);
@@ -462,6 +491,19 @@ public class BeerMeGUI extends JFrame
 		beer4.setBeer(beers[random4]);
 		beer5.setBeer(beers[random5]);
 		beer6.setBeer(beers[random6]);
+	}
+	
+	public void autoAdjustBeers(){
+		int bitterness = bitternessSlider.getValue();
+		int flavor = flavorSlider.getValue();
+		int aroma = aromaSlider.getValue();
+		int color = colorSlider.getValue();
+		int abv = abvSlider.getValue();
+		
+		int[] posAttr = {bitterness, flavor, aroma, color, abv};
+		int[] negAttr = {64,64,64,64,64};
+		
+		displayBeer(posAttr, negAttr, Profile.getOmits());
 	}
 	
 

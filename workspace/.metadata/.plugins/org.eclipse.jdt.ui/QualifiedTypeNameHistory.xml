@@ -5,4 +5,8 @@
 <fullyQualifiedTypeName name="java.lang.System"/>
 <fullyQualifiedTypeName name="javax.swing.JSlider"/>
 <fullyQualifiedTypeName name="javax.swing.SwingConstants"/>
+<fullyQualifiedTypeName name="java.awt.event.AdjustmentListener"/>
+<fullyQualifiedTypeName name="java.awt.event.AdjustmentEvent"/>
+<fullyQualifiedTypeName name="javax.swing.event.ChangeListener"/>
+<fullyQualifiedTypeName name="javax.swing.event.ChangeEvent"/>
 </qualifiedTypeNameHistroy>
