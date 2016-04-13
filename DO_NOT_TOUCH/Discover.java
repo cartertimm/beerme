@@ -16,7 +16,7 @@ public class Discover{
 			beers.add(new Beer(names[i], attributes[i]));
 		
 		beers.trimToSize();
-		beerList = beers.toArray();
+		beerList = (Beer[]) beers.toArray();
 	}
 	
 	public Beer[] search(String name){
@@ -26,7 +26,7 @@ public class Discover{
 				matches.add(beerList[i]);
 		}
 		matches.trimToSize();
-		return matches.toArray();
+		return (Beer[]) matches.toArray();
 	}
 	
 	/**
@@ -64,7 +64,7 @@ public class Discover{
 			*/
 			
 			for (int j = 0; j < 5; j++){
-				switch (Math.abs(curAtts[j] - posAtts[j]){
+				switch (Math.abs(curAtts[j] - posAtts[j])){
 					case (0):
 						difference[0]++;
 						break;
@@ -105,7 +105,7 @@ public class Discover{
 				
 				boolean inOmits = false;	// omits list flag
 				for (int j = 0; j < omits.length; j++){
-					if (beerList[i].getName().equals(omits[j].getName()){
+					if (beerList[i].getName().equals(omits[j].getName())){
 						inOmits = true;
 						break;
 					}
@@ -127,7 +127,7 @@ public class Discover{
 					*/
 					
 					for (int j = 0; j < 5; j++){
-						switch (Math.abs(curAtts[j] - negAtts[j]){
+						switch (Math.abs(curAtts[j] - negAtts[j])){
 							case (0):
 								difference[0]++;
 								break;
@@ -167,10 +167,10 @@ public class Discover{
 		}
 		
 		matchedBeers.trimToSize();
-		return matchedBeers.toArray();
+		return (Beer[]) matchedBeers.toArray();
 	}
 	
-	public Beer[] getBeerList(){
+	public static Beer[] getBeerList(){
 		return beerList;
 	}
 	

@@ -4,7 +4,7 @@ public class Beer{
 	// int[] attributes must be of form [bitterness, flavor, aroma, color, ABV]
 	public Beer(String beerName, int[] beerAttributes){
 		name = beerName;
-		attributes = new int[5] attributes;
+		attributes = new int[5];
 		for (int i = 0; i < 5; i++)
 			attributes[i] = beerAttributes[i];
 	}

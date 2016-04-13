@@ -50,15 +50,15 @@ public class Profile{
 	}
 	
 	public Beer[] getLikes(){
-		return likes.toArray();
+		return (Beer[]) likes.toArray();
 	}
 	
 	public Beer[] getDislikes(){
-		return dislikes.toArray();
+		return (Beer[]) dislikes.toArray();
 	}
 	
 	public Beer[] getOnTap(){
-		return onTap.toArray();
+		return (Beer[]) onTap.toArray();
 	}
 	
 	public void addLike(Beer beer){
@@ -75,19 +75,19 @@ public class Profile{
 	
 	public void addOnTap(Beer beer){
 		onTap.add(beer);
-		onTap.trimtoSize();
+		onTap.trimToSize();
 		fileAccess.add(beer.getName(), "onTap.txt");
 	}
 	
 	public void removeLike(Beer beer){
-		like.remove(Beer);
-		like.trimToSize();
+		likes.remove(beer);
+		likes.trimToSize();
 		fileAccess.remove(beer.getName(), "likes.txt");
 	}
 	
 	public void removeDislike(Beer beer){
-		dislike.remove(beer);
-		dislike.trimToSize();
+		dislikes.remove(beer);
+		dislikes.trimToSize();
 		fileAccess.remove(beer.getName(), "dislikes.txt");
 	}
 	
@@ -106,7 +106,7 @@ public class Profile{
 		}
 		
 		for (int i = 0; i < likes.size(); i++){
-			int[] attributes = likes[i].getAttributes;
+			int[] attributes = likes.get(i).getAttributes();
 			for (int j = 0; j < 5; j++){
 				posAtts[j] += attributes[j];
 			}
@@ -129,7 +129,7 @@ public class Profile{
 		}
 		
 		for (int i = 0; i < dislikes.size(); i++){
-			int[] attributes = dislikes[i].getAttributes;
+			int[] attributes = dislikes.get(i).getAttributes();
 			for (int j = 0; j < 5; j++){
 				negAtts[j] += attributes[j];
 			}
@@ -149,7 +149,7 @@ public class Profile{
 		omits.addAll(dislikes);
 		omits.addAll(onTap);
 		omits.trimToSize();
-		return omits.toArray();
+		return (Beer[]) omits.toArray();
 	}
 	
 	
