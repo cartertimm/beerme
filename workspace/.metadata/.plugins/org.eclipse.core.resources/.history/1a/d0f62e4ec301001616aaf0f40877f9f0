@@ -463,6 +463,13 @@ public class BeerMeGUI extends JFrame
 		beer6.setBeer(beers[random6]);
 	}
 	
-
+	
+	
+	
+	
+	
+	
+	
+	
 	
 }

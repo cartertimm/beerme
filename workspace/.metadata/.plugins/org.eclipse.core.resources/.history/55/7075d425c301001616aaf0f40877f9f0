@@ -258,7 +258,7 @@ public class BeerMeGUI extends JFrame
 		
 		bitternessPanel.setLayout(new BorderLayout());
 		bitternessPanel.setOpaque(false);
-		bitternessPanel.setPreferredSize(new Dimension(95,100));
+		bitternessPanel.setPreferredSize(new Dimension(90,100));
 		bitternessPanel.add(bitternessSlider, BorderLayout.CENTER);
 		bitternessLabel.setHorizontalAlignment(JLabel.CENTER);
 		bitternessPanel.add(bitternessLabel, BorderLayout.SOUTH);
@@ -266,7 +266,7 @@ public class BeerMeGUI extends JFrame
 		
 		flavorPanel.setLayout(new BorderLayout());
 		flavorPanel.setOpaque(false);
-		flavorPanel.setPreferredSize(new Dimension(95,100));
+		flavorPanel.setPreferredSize(new Dimension(90,100));
 		flavorPanel.add(flavorSlider, BorderLayout.CENTER);
 		flavorLabel.setHorizontalAlignment(JLabel.CENTER);
 		flavorPanel.add(flavorLabel, BorderLayout.SOUTH);
@@ -274,7 +274,7 @@ public class BeerMeGUI extends JFrame
 		
 		aromaPanel.setLayout(new BorderLayout());
 		aromaPanel.setOpaque(false);
-		aromaPanel.setPreferredSize(new Dimension(95,100));
+		aromaPanel.setPreferredSize(new Dimension(90,100));
 		aromaPanel.add(aromaSlider, BorderLayout.CENTER);
 		aromaLabel.setHorizontalAlignment(JLabel.CENTER);
 		aromaPanel.add(aromaLabel, BorderLayout.SOUTH);
@@ -282,7 +282,7 @@ public class BeerMeGUI extends JFrame
 		
 		colorPanel.setLayout(new BorderLayout());
 		colorPanel.setOpaque(false);
-		colorPanel.setPreferredSize(new Dimension(95,100));
+		colorPanel.setPreferredSize(new Dimension(90,100));
 		colorPanel.add(colorSlider, BorderLayout.CENTER);
 		colorLabel.setHorizontalAlignment(JLabel.CENTER);
 		colorPanel.add(colorLabel, BorderLayout.SOUTH);
@@ -290,7 +290,7 @@ public class BeerMeGUI extends JFrame
 		
 		abvPanel.setLayout(new BorderLayout());
 		abvPanel.setOpaque(false);
-		abvPanel.setPreferredSize(new Dimension(95,100));
+		abvPanel.setPreferredSize(new Dimension(90,100));
 		abvPanel.add(abvSlider, BorderLayout.CENTER);
 		abvLabel.setHorizontalAlignment(JLabel.CENTER);
 		abvPanel.add(abvLabel, BorderLayout.SOUTH);
@@ -463,6 +463,13 @@ public class BeerMeGUI extends JFrame
 		beer6.setBeer(beers[random6]);
 	}
 	
-
+	
+	
+	
+	
+	
+	
+	
+	
 	
 }

@@ -209,7 +209,7 @@ public class BeerMeGUI extends JFrame
 		topBar.setLayout(new CardLayout());
 		topBar.setOpaque(false);
 		topBar.setPreferredSize(new Dimension(700,110));
-		topBar.setBorder(new EmptyBorder(0,10,0,10));
+		topBar.setBorder(new EmptyBorder(0,10,5,10));
 		
 		//Search Bar
 		searchBar.setLayout(new BorderLayout());
@@ -463,6 +463,13 @@ public class BeerMeGUI extends JFrame
 		beer6.setBeer(beers[random6]);
 	}
 	
-
+	
+	
+	
+	
+	
+	
+	
+	
 	
 }
