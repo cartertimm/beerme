@@ -1,22 +1,24 @@
 
 import java.util.ArrayList;
+import java.io.FileNotFoundException;
 import java.lang.Math;
 
 
 public class Discover{
 	
 	//constructor that reads through beerList.csv and loads into an array
-	public Discover(){
+	public Discover() throws FileNotFoundException{
 		FileManager fileAccess = new FileManager();
 		ArrayList<Beer> beers = new ArrayList<Beer>();
 		String[] names = fileAccess.getNames("beerList.csv");
-		int[][] attributes = fileAccess.getAttributes;
+		int[][] attributes = fileAccess.getAttributes();
 		
-		for (int i = 0; i < fileAccess.getNumberOfBeers(); i++)
+		for (int i = 0; i < names.length; i++)
 			beers.add(new Beer(names[i], attributes[i]));
 		
 		beers.trimToSize();
-		beerList = (Beer[]) beers.toArray();
+		beerList = new Beer[beers.size()];
+		beerList = beers.toArray(beerList);
 	}
 	
 	public Beer[] search(String name){
@@ -26,7 +28,9 @@ public class Discover{
 				matches.add(beerList[i]);
 		}
 		matches.trimToSize();
-		return (Beer[]) matches.toArray();
+		Beer[] returnArr = new Beer[matches.size()];
+		returnArr = matches.toArray(returnArr);
+		return returnArr;
 	}
 	
 	/**
@@ -167,7 +171,9 @@ public class Discover{
 		}
 		
 		matchedBeers.trimToSize();
-		return (Beer[]) matchedBeers.toArray();
+		Beer[] returnArr = new Beer[matchedBeers.size()];
+		returnArr = matchedBeers.toArray(returnArr);
+		return returnArr;
 	}
 	
 	public static Beer[] getBeerList(){

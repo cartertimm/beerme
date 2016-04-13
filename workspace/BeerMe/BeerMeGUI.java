@@ -18,6 +18,8 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
+import java.io.FileNotFoundException;
+
 /**
  * User Interface for the BeerMe Application
  * 
@@ -27,12 +29,15 @@ import javax.swing.border.EmptyBorder;
  * @file		BeerMeGUI.java
  */
 
-public class BeerMeGUI extends JFrame
+public class BeerMeGUI extends JFrame 
 {
 
 	// *****************************************************************
 	// *  Fields
 	// *****************************************************************
+	
+	private static Discover discover;	// declared in main in try-catch
+	private static Profile profile;		//
 	
 	private JPanel mainPanel = new JPanel();
 	
@@ -77,6 +82,9 @@ public class BeerMeGUI extends JFrame
 	
 	//* Profile Page
 	private JPanel profilePage = new JPanel();
+	
+	
+	
 	
 
 	// *****************************************************************
@@ -313,6 +321,20 @@ public class BeerMeGUI extends JFrame
 	// *  Main
 	// *****************************************************************	
 	public static void main(String[] args){
+		try{
+			discover = new Discover();
+			profile = new Profile();
+		} catch(FileNotFoundException e){
+			System.out.println("Failed");
+		}
+		int testBeer = 37;	// Manny's - verify in CSV for yourself if you wish
+		//I checked first and last beer and CSV reader seems to work. I have not tested for TXT files, but the code looks good
+		System.out.println(Discover.getBeerList()[testBeer].getName());
+		System.out.println(Discover.getBeerList()[testBeer].getAttributes()[0]);
+		System.out.println(Discover.getBeerList()[testBeer].getAttributes()[1]);
+		System.out.println(Discover.getBeerList()[testBeer].getAttributes()[2]);
+		System.out.println(Discover.getBeerList()[testBeer].getAttributes()[3]);
+		System.out.println(Discover.getBeerList()[testBeer].getAttributes()[4]);
 		new BeerMeGUI();
 	}
 	

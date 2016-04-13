@@ -1,10 +1,12 @@
 
 import java.util.ArrayList;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.lang.Math;
 
 public class Profile{
 	
-	public Profile(){
+	public Profile() throws FileNotFoundException{
 		fileAccess = new FileManager();
 		likes = new ArrayList<Beer>();
 		dislikes = new ArrayList<Beer>();
@@ -50,51 +52,51 @@ public class Profile{
 	}
 	
 	public Beer[] getLikes(){
-		return (Beer[]) likes.toArray();
+		Beer[] returnArr = new Beer[likes.size()];
+		returnArr = likes.toArray(returnArr);
+		return returnArr;
 	}
 	
 	public Beer[] getDislikes(){
-		return (Beer[]) dislikes.toArray();
+		Beer[] returnArr = new Beer[dislikes.size()];
+		returnArr = dislikes.toArray(returnArr);
+		return returnArr;
 	}
 	
 	public Beer[] getOnTap(){
-		return (Beer[]) onTap.toArray();
+		Beer[] returnArr = new Beer[onTap.size()];
+		returnArr = onTap.toArray(returnArr);
+		return returnArr;
 	}
 	
 	public void addLike(Beer beer){
 		likes.add(beer);
 		likes.trimToSize();
-		fileAccess.add(beer.getName(), "likes.txt");
 	}
 	
 	public void addDislike(Beer beer){
 		dislikes.add(beer);
 		dislikes.trimToSize();
-		fileAccess.add(beer.getName(), "dislikes.txt");
 	}
 	
 	public void addOnTap(Beer beer){
 		onTap.add(beer);
 		onTap.trimToSize();
-		fileAccess.add(beer.getName(), "onTap.txt");
 	}
 	
 	public void removeLike(Beer beer){
 		likes.remove(beer);
 		likes.trimToSize();
-		fileAccess.remove(beer.getName(), "likes.txt");
 	}
 	
 	public void removeDislike(Beer beer){
 		dislikes.remove(beer);
 		dislikes.trimToSize();
-		fileAccess.remove(beer.getName(), "dislikes.txt");
 	}
 	
 	public void removeOnTap(Beer beer){
 		onTap.remove(beer);
 		onTap.trimToSize();
-		fileAccess.remove(beer.getName(), "onTap.txt");
 	}
 	
 	public int[] getPositiveAttributes(){
@@ -152,6 +154,22 @@ public class Profile{
 		return (Beer[]) omits.toArray();
 	}
 	
+	public void saveAndQuit() throws IOException{
+		String[] likesNames = new String[likes.size()];
+		String[] dislikesNames = new String[dislikes.size()];
+		String[] onTapNames = new String[onTap.size()];
+		
+		for (int i = 0; i < likes.size(); i++)
+			likesNames[i] = likes.get(i).getName();
+		
+		for (int i = 0; i < dislikes.size(); i++)
+			dislikesNames[i] = dislikes.get(i).getName();
+		
+		for (int i = 0; i < onTap.size(); i++)
+			onTapNames[i] = onTap.get(i).getName();
+		
+		fileAccess.quitAndSave(likesNames, dislikesNames, onTapNames);
+	}
 	
 	
 	private ArrayList<Beer> likes;
