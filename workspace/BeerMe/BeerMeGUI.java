@@ -333,18 +333,10 @@ public class BeerMeGUI extends JFrame
 		} catch(FileNotFoundException e){
 			System.out.println("Failed");
 		}
-		int testBeer = 37;	// Manny's - verify in CSV for yourself if you wish
-		//I checked first and last beer and CSV reader seems to work. I have not tested for TXT files, but the code looks good
-		System.out.println(Discover.getBeerList()[testBeer].getName());
-		System.out.println(Discover.getBeerList()[testBeer].getAttributes()[0]);
-		System.out.println(Discover.getBeerList()[testBeer].getAttributes()[1]);
-		System.out.println(Discover.getBeerList()[testBeer].getAttributes()[2]);
-		System.out.println(Discover.getBeerList()[testBeer].getAttributes()[3]);
-		System.out.println(Discover.getBeerList()[testBeer].getAttributes()[4]);
-		
 		
 		new BeerMeGUI();
 		displayBeer(Profile.getPositiveAttributes(), Profile.getNegativeAttributes(), Profile.getOmits());
+		//System.out.println(Discover.findBeers(Profile.getPositiveAttributes(), Profile.getNegativeAttributes(), Profile.getOmits()).length);
 	}
 	
 	

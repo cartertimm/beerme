@@ -1,0 +1,188 @@
+
+import java.util.ArrayList;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.lang.Math;
+
+public class Profile{
+	
+	public Profile() throws FileNotFoundException{
+		fileAccess = new FileManager();
+		likes = new ArrayList<Beer>();
+		dislikes = new ArrayList<Beer>();
+		onTap = new ArrayList<Beer>();
+		
+		Beer[] beerList = Discover.getBeerList();
+		
+		//add to likes ArrayList
+		String[] fromFiles = fileAccess.getNames("likes.txt");
+		for (int i = 0; i < fromFiles.length; i++){
+			for (int j = 0; j < beerList.length; i++){
+				if (beerList[j].getName().equals(fromFiles[i])){
+					likes.add(beerList[j]);
+					break;
+				}
+			}
+		}
+		likes.trimToSize();
+		
+		//add to dislikes ArrayList
+		fromFiles = fileAccess.getNames("dislikes.txt");
+		for (int i = 0; i < fromFiles.length; i++){
+			for (int j = 0; j < beerList.length; i++){
+				if (beerList[j].getName().equals(fromFiles[i])){
+					dislikes.add(beerList[j]);
+					break;
+				}
+			}
+		}
+		dislikes.trimToSize();
+		
+		//add to onTap ArrayList
+		fromFiles = fileAccess.getNames("onTap.txt");
+		for (int i = 0; i < fromFiles.length; i++){
+			for (int j = 0; j < beerList.length; i++){
+				if (beerList[j].getName().equals(fromFiles[i])){
+					onTap.add(beerList[j]);
+					break;
+				}
+			}
+		}
+		onTap.trimToSize();
+	}
+	
+	public Beer[] getLikes(){
+		Beer[] returnArr = new Beer[likes.size()];
+		returnArr = likes.toArray(returnArr);
+		return returnArr;
+	}
+	
+	public Beer[] getDislikes(){
+		Beer[] returnArr = new Beer[dislikes.size()];
+		returnArr = dislikes.toArray(returnArr);
+		return returnArr;
+	}
+	
+	public Beer[] getOnTap(){
+		Beer[] returnArr = new Beer[onTap.size()];
+		returnArr = onTap.toArray(returnArr);
+		return returnArr;
+	}
+	
+	public void addLike(Beer beer){
+		likes.add(beer);
+		likes.trimToSize();
+	}
+	
+	public void addDislike(Beer beer){
+		dislikes.add(beer);
+		dislikes.trimToSize();
+	}
+	
+	public void addOnTap(Beer beer){
+		onTap.add(beer);
+		onTap.trimToSize();
+	}
+	
+	public void removeLike(Beer beer){
+		likes.remove(beer);
+		likes.trimToSize();
+	}
+	
+	public void removeDislike(Beer beer){
+		dislikes.remove(beer);
+		dislikes.trimToSize();
+	}
+	
+	public void removeOnTap(Beer beer){
+		onTap.remove(beer);
+		onTap.trimToSize();
+	}
+	
+	public static int[] getPositiveAttributes(){
+		int[] posAtts = new int[5];
+		if (likes.size() == 0){
+			for (int i = 0; i < 5; i++)
+				posAtts[i] = 10;
+			return posAtts;
+		}
+		
+		for (int i = 0; i < likes.size(); i++){
+			int[] attributes = likes.get(i).getAttributes();
+			for (int j = 0; j < 5; j++){
+				posAtts[j] += attributes[j];
+			}
+		}
+		
+		for (int i = 0; i < 5; i++){
+			posAtts[i] = posAtts[i] / likes.size();
+			posAtts[i] = (int) Math.round(posAtts[i]);
+		}
+		
+		return posAtts;
+	}
+	
+	public static int[] getNegativeAttributes(){
+		int[] negAtts = new int[5];
+		if (dislikes.size() == 0){
+			for (int i = 0; i < 5; i++)
+				negAtts[i] = 64;
+			return negAtts;
+		}
+		
+		for (int i = 0; i < dislikes.size(); i++){
+			int[] attributes = dislikes.get(i).getAttributes();
+			for (int j = 0; j < 5; j++){
+				negAtts[j] += attributes[j];
+			}
+		}
+		
+		for (int i = 0; i < 5; i++){
+			negAtts[i] = negAtts[i] / dislikes.size();
+			negAtts[i] = (int) Math.round(negAtts[i]);
+		}
+		
+		return negAtts;
+	}
+	
+	public static Beer[] getOmits(){
+		ArrayList<Beer> omits = new ArrayList<Beer>();
+		omits.addAll(likes);
+		omits.addAll(dislikes);
+		omits.addAll(onTap);
+		omits.trimToSize();
+		
+		Beer[] returnArr = new Beer[omits.size()];
+		returnArr = omits.toArray(returnArr);
+		return returnArr;
+		
+		/*
+		Beer[] returnArr = new Beer[beerList.size()];
+		returnArr = beerList.toArray(returnArr);
+		return returnArr;
+		*/
+	}
+	
+	public void saveAndQuit() throws IOException{
+		String[] likesNames = new String[likes.size()];
+		String[] dislikesNames = new String[dislikes.size()];
+		String[] onTapNames = new String[onTap.size()];
+		
+		for (int i = 0; i < likes.size(); i++)
+			likesNames[i] = likes.get(i).getName();
+		
+		for (int i = 0; i < dislikes.size(); i++)
+			dislikesNames[i] = dislikes.get(i).getName();
+		
+		for (int i = 0; i < onTap.size(); i++)
+			onTapNames[i] = onTap.get(i).getName();
+		
+		fileAccess.quitAndSave(likesNames, dislikesNames, onTapNames);
+	}
+	
+	
+	private static ArrayList<Beer> likes;
+	private static ArrayList<Beer> dislikes;
+	private static ArrayList<Beer> onTap;
+	private FileManager fileAccess;
+}

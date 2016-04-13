@@ -59,7 +59,7 @@ public class Discover{
 		*/
 		
 		for (int i = 0; i < beerList.length; i++){
-			int[] difference = {0, 0, 0, 0, 0};	// both pos and neg differences
+			int[] difference = {0, 0, 0};	// both pos and neg differences
 			int[] curAtts = beerList[i].getAttributes();	// current attributes
 			
 			/*
@@ -78,12 +78,6 @@ public class Discover{
 					case (2):
 						difference[2]++;
 						break;
-					case (3):
-						difference[3]++;
-						break;
-					case (4):
-						difference[4]++;
-						break;
 				}
 			}
 		
@@ -93,8 +87,8 @@ public class Discover{
 			*/
 			
 			boolean posMatch = false;	// positive match flag
-			for (int j = 0; j < 5; j++){
-				if (difference[j] > j){
+			for (int j = 0; j < 3; j++){
+				if (difference[j] > j + 1){
 					posMatch = true;
 					break;
 				}
@@ -121,7 +115,7 @@ public class Discover{
 						Reset the difference array to use with negative differences.
 					*/
 					
-					for (int j = 0; j < 5; j++)
+					for (int j = 0; j < 3; j++)
 						difference[j] = 0;
 					
 					/*
@@ -141,12 +135,6 @@ public class Discover{
 							case (2):
 								difference[2]++;
 								break;
-							case (3):
-								difference[3]++;
-								break;
-							case (4):
-								difference[4]++;
-								break;
 						}
 					}
 					
@@ -157,8 +145,8 @@ public class Discover{
 					*/
 					
 					boolean negMatch = false;	// negative match flag
-					for (int j = 0; j < 5; j++){
-						if (difference[j] > j){
+					for (int j = 0; j < 3; j++){
+						if (difference[j] > j + 1){
 							negMatch = true;
 							break;
 						}
