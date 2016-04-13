@@ -1,6 +1,4 @@
 
-//Hello Jeff
-
 public class Beer{
 	
 	// int[] attributes must be of form [bitterness, flavor, aroma, color, ABV]
