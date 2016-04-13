@@ -9,6 +9,7 @@ import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.Graphics;
 
+import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -37,14 +38,14 @@ public class BeerDisplay extends JPanel{
 		setBorder(new LineBorder(Color.gray, 1, true));
 		setBackground(Color.white);
 		
-		
 		Font labelFont = beerName.getFont();
 		beerName.setFont(new Font(labelFont.getName(), Font.PLAIN, 15));
 		beerName.setHorizontalAlignment(JLabel.CENTER);
 		add(beerName,BorderLayout.CENTER);	
 		
 		feedBackPanel.setLayout(new FlowLayout());
-		feedBackPanel.setBackground(Color.white);
+		feedBackPanel.setOpaque(false);
+		//feedBackPanel.setBorder(BorderFactory.createMatteBorder(1, 0, 0, 0, Color.BLACK));
 		
 		onTap.setIcon(new ImageIcon("bin/onTapOption.png"));
 		onTap.setBorder(new EmptyBorder(0,15,0,15));

@@ -14,6 +14,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
@@ -65,10 +66,14 @@ public class BeerMeGUI extends JFrame
 	//Beer Recommendation List
 	private JPanel beerReccs = new JPanel();
 	
-	
-	
+		
 	//* On Tap Page
 	private JPanel onTapPage = new JPanel();
+	private JPanel onTapFullPage = new JPanel();
+	private JLabel onTapTitle = new JLabel("On Tap");
+	
+	//On Tap List
+	private JPanel onTapList = new JPanel();
 	
 	//* Profile Page
 	private JPanel profilePage = new JPanel();
@@ -81,7 +86,7 @@ public class BeerMeGUI extends JFrame
 		super("BeerMe");
 		
 		//Initial Frame Setup
-		setSize(700,475);
+		setSize(700,485);
 		setLocationRelativeTo(null);
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -154,13 +159,16 @@ public class BeerMeGUI extends JFrame
 		pages.setLayout(new CardLayout());	
 		
 		//* Discover Page
-		discoverPage.setLayout(new BorderLayout());	
+		discoverPage.setLayout(new BorderLayout());
+		discoverPage.setBackground(new Color(250,243,230));
 		topBar.setLayout(new CardLayout());
-		topBar.setPreferredSize(new Dimension(700,75));
+		topBar.setOpaque(false);
+		topBar.setPreferredSize(new Dimension(700,100));
 		topBar.setBorder(new EmptyBorder(10,10,10,10));
 		
 		//Search Bar
 		searchBar.setLayout(new BorderLayout());
+		searchBar.setOpaque(false);
 		filterButtonOff.setIcon(new ImageIcon("bin/filterButtonOff.png"));
 		filterButtonOff.setBorder(new EmptyBorder(0,10,0,0));
 		filterButtonOff.setContentAreaFilled(false);
@@ -174,7 +182,9 @@ public class BeerMeGUI extends JFrame
 		searchBar.add(filterButtonOff, BorderLayout.WEST);
 		
 		searchPanelBag.setLayout(new GridBagLayout());
+		searchPanelBag.setOpaque(false);
 		searchPanel.setLayout(new FlowLayout());
+		searchPanel.setOpaque(false);
 		searchPanel.add(searchField);
 		searchPanel.add(submitSearch);
 		searchPanelBag.add(searchPanel);
@@ -184,6 +194,7 @@ public class BeerMeGUI extends JFrame
 		
 		//Filter Bar
 		filterBar.setLayout(new BorderLayout());
+		filterBar.setOpaque(false);
 		filterButtonOn.setIcon(new ImageIcon("bin/filterButtonOn.png"));
 		filterButtonOn.setBorder(new EmptyBorder(0,10,0,0));
 		filterButtonOn.setContentAreaFilled(false);
@@ -200,6 +211,7 @@ public class BeerMeGUI extends JFrame
 		discoverPage.add(topBar,BorderLayout.NORTH);
 		
 		beerReccs.setLayout(new FlowLayout());
+		beerReccs.setOpaque(false);
 		
 		BeerDisplay beer1 = new BeerDisplay();
 		beerReccs.add(beer1);
@@ -213,8 +225,7 @@ public class BeerMeGUI extends JFrame
 		beerReccs.add(beer5);
 		BeerDisplay beer6 = new BeerDisplay();
 		beerReccs.add(beer6);
-		discoverPage.add(beerReccs, BorderLayout.CENTER);
-		
+		discoverPage.add(beerReccs, BorderLayout.CENTER);	
 		
 		pages.add(discoverPage, "discoverPage"); //adds discoverPage to pages
 		
@@ -223,6 +234,63 @@ public class BeerMeGUI extends JFrame
 		
 		//* On Tap Page
 		onTapPage.setLayout(new BorderLayout());
+		onTapPage.setBackground(new Color(250,243,230));
+		
+		//On Tap
+		onTapFullPage.setLayout(new BorderLayout());
+		onTapFullPage.setPreferredSize(new Dimension(700,2000));
+		onTapFullPage.setOpaque(false);
+		
+		//On Tap Title
+		Font tapFont = onTapTitle.getFont();
+		onTapTitle.setFont(new Font(tapFont.getName(), Font.PLAIN, 50));
+		onTapTitle.setBorder(new EmptyBorder(20,0,20,0));
+		onTapTitle.setHorizontalAlignment(JLabel.CENTER);
+		onTapFullPage.add(onTapTitle, BorderLayout.NORTH);
+		
+		//On Tap List
+		onTapList.setLayout(new FlowLayout());
+		//onTapList.setPreferredSize(new Dimension(700,1000));
+		onTapList.setOpaque(false);
+		
+		BeerDisplay beer7 = new BeerDisplay();
+		onTapList.add(beer7);
+		BeerDisplay beer8 = new BeerDisplay();
+		onTapList.add(beer8);
+		BeerDisplay beer9 = new BeerDisplay();
+		onTapList.add(beer9);
+		BeerDisplay beer10 = new BeerDisplay();
+		onTapList.add(beer10);
+		BeerDisplay beer11 = new BeerDisplay();
+		onTapList.add(beer11);
+		BeerDisplay beer12 = new BeerDisplay();
+		onTapList.add(beer12);
+		BeerDisplay beer13 = new BeerDisplay();
+		onTapList.add(beer13);
+		BeerDisplay beer14 = new BeerDisplay();
+		onTapList.add(beer14);
+		BeerDisplay beer15 = new BeerDisplay();
+		onTapList.add(beer15);
+		BeerDisplay beer16 = new BeerDisplay();
+		onTapList.add(beer16);
+		BeerDisplay beer17 = new BeerDisplay();
+		onTapList.add(beer17);
+		BeerDisplay beer18 = new BeerDisplay();
+		onTapList.add(beer18);
+		
+		onTapFullPage.add(onTapList, BorderLayout.CENTER);
+		
+		
+		JScrollPane listScrollPane = new JScrollPane(onTapFullPage,
+				JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+        listScrollPane.setSize(new Dimension(700,0)); //Sets the width of scroll pane
+        listScrollPane.setBorder(new EmptyBorder(0,0,0,0));
+        listScrollPane.getViewport().setOpaque(false);
+        listScrollPane.setOpaque(false);
+        
+		
+		onTapPage.add(listScrollPane, BorderLayout.CENTER);
+		
 		
 		pages.add(onTapPage, "onTapPage"); //adds onTapPage to pages
 		
