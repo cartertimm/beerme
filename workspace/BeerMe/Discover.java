@@ -51,7 +51,7 @@ public class Discover{
 	
 	@return        : array holding all matched beers
 	*/
-	Beer[] findBeers(int[] posAtts, int[] negAtts, Beer[] omits){
+	public static Beer[] findBeers(int[] posAtts, int[] negAtts, Beer[] omits){
 		ArrayList<Beer> matchedBeers = new ArrayList<Beer>();	// used to hold matched beers
 		
 		/*

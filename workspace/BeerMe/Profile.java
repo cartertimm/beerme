@@ -99,7 +99,7 @@ public class Profile{
 		onTap.trimToSize();
 	}
 	
-	public int[] getPositiveAttributes(){
+	public static int[] getPositiveAttributes(){
 		int[] posAtts = new int[5];
 		if (likes.size() == 0){
 			for (int i = 0; i < 5; i++)
@@ -122,7 +122,7 @@ public class Profile{
 		return posAtts;
 	}
 	
-	public int[] getNegativeAttributes(){
+	public static int[] getNegativeAttributes(){
 		int[] negAtts = new int[5];
 		if (dislikes.size() == 0){
 			for (int i = 0; i < 5; i++)
@@ -145,13 +145,22 @@ public class Profile{
 		return negAtts;
 	}
 	
-	public Beer[] getOmits(){
+	public static Beer[] getOmits(){
 		ArrayList<Beer> omits = new ArrayList<Beer>();
 		omits.addAll(likes);
 		omits.addAll(dislikes);
 		omits.addAll(onTap);
 		omits.trimToSize();
-		return (Beer[]) omits.toArray();
+		
+		Beer[] returnArr = new Beer[omits.size()];
+		returnArr = omits.toArray(returnArr);
+		return returnArr;
+		
+		/*
+		Beer[] returnArr = new Beer[beerList.size()];
+		returnArr = beerList.toArray(returnArr);
+		return returnArr;
+		*/
 	}
 	
 	public void saveAndQuit() throws IOException{
@@ -172,8 +181,8 @@ public class Profile{
 	}
 	
 	
-	private ArrayList<Beer> likes;
-	private ArrayList<Beer> dislikes;
-	private ArrayList<Beer> onTap;
+	private static ArrayList<Beer> likes;
+	private static ArrayList<Beer> dislikes;
+	private static ArrayList<Beer> onTap;
 	private FileManager fileAccess;
 }

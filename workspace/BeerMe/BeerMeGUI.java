@@ -19,6 +19,9 @@ import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
 import java.io.FileNotFoundException;
+import java.util.Collections;
+import java.util.List;
+import java.util.Random;
 
 /**
  * User Interface for the BeerMe Application
@@ -38,6 +41,14 @@ public class BeerMeGUI extends JFrame
 	
 	private static Discover discover;	// declared in main in try-catch
 	private static Profile profile;		//
+	
+	//***** Beer Recommendation on Discover Page
+	private static BeerDisplay beer1 = new BeerDisplay();
+	private static BeerDisplay beer2 = new BeerDisplay();
+	private static BeerDisplay beer3 = new BeerDisplay();
+	private static BeerDisplay beer4 = new BeerDisplay();
+	private static BeerDisplay beer5 = new BeerDisplay();
+	private static BeerDisplay beer6 = new BeerDisplay();
 	
 	private JPanel mainPanel = new JPanel();
 	
@@ -221,17 +232,12 @@ public class BeerMeGUI extends JFrame
 		beerReccs.setLayout(new FlowLayout());
 		beerReccs.setOpaque(false);
 		
-		BeerDisplay beer1 = new BeerDisplay();
+		
 		beerReccs.add(beer1);
-		BeerDisplay beer2 = new BeerDisplay();
 		beerReccs.add(beer2);
-		BeerDisplay beer3 = new BeerDisplay();
 		beerReccs.add(beer3);
-		BeerDisplay beer4 = new BeerDisplay();
 		beerReccs.add(beer4);
-		BeerDisplay beer5 = new BeerDisplay();
 		beerReccs.add(beer5);
-		BeerDisplay beer6 = new BeerDisplay();
 		beerReccs.add(beer6);
 		discoverPage.add(beerReccs, BorderLayout.CENTER);	
 		
@@ -335,8 +341,67 @@ public class BeerMeGUI extends JFrame
 		System.out.println(Discover.getBeerList()[testBeer].getAttributes()[2]);
 		System.out.println(Discover.getBeerList()[testBeer].getAttributes()[3]);
 		System.out.println(Discover.getBeerList()[testBeer].getAttributes()[4]);
+		
+		
 		new BeerMeGUI();
+		displayBeer(Profile.getPositiveAttributes(), Profile.getNegativeAttributes(), Profile.getOmits());
 	}
+	
+	
+	
+	// *****************************************************************
+	// *  Methods
+	// *****************************************************************
+	
+	public static void displayBeer(int[] pos, int[] neg, Beer[] omits){
+		Beer[] beers = Discover.findBeers(pos, neg, omits);	
+		Random rand = new Random();
+	
+		int random1;
+		int random2;
+		int random3;
+		int random4;
+		int random5;
+		int random6;
+		
+		//Generates 6 UNIQUE random numbers
+		random1 = rand.nextInt(beers.length);
+		do {
+			random2 = rand.nextInt(beers.length);
+		} while(random2 == random1);
+		do {
+			random3 = rand.nextInt(beers.length);
+		} while(random3 == random1 || random3 == random2);
+		do {
+			random4 = rand.nextInt(beers.length);
+		} while(random4 == random1 || random4 == random2 || random4 == random3);
+		do {
+			random5 = rand.nextInt(beers.length);
+		} while(random5 == random1 || random5 == random2 || random5 == random3
+				|| random5 == random4);
+		do {
+			random6 = rand.nextInt(beers.length);
+		} while(random6 == random1 || random6 == random2 || random6 == random3
+				|| random6 == random4 || random6 == random5);
+		
+		
+		//Sets beers using the random numbers to get random beers from the
+		//findBeer function in Discover
+		beer1.setBeer(beers[random1]);
+		beer2.setBeer(beers[random2]);
+		beer3.setBeer(beers[random3]);
+		beer4.setBeer(beers[random4]);
+		beer5.setBeer(beers[random5]);
+		beer6.setBeer(beers[random6]);
+	}
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 }

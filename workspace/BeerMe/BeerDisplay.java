@@ -22,6 +22,10 @@ public class BeerDisplay extends JPanel{
 	// *****************************************************************
 	// *  Fields
 	// *****************************************************************
+	
+	private Beer beer;
+	
+	//GUI Fields
 	private JLabel beerName = new JLabel("Beer Name");
 	private JPanel feedBackPanel = new JPanel();
 	private JButton onTap = new JButton();
@@ -66,9 +70,21 @@ public class BeerDisplay extends JPanel{
 		feedBackPanel.add(dislike);
 		
 		add(feedBackPanel,BorderLayout.SOUTH);
-		
-		
+			
 	}
+	
+	// *****************************************************************
+	// *  Methods
+	// *****************************************************************
+	
+	/**
+	 * Sets the beer to be tied to the display
+	 */
+	public void setBeer(Beer newBeer){
+		beer = newBeer;
+		beerName.setText(beer.getName()); //Sets the beerName in the display
+	}
+	
 	
 	
 
