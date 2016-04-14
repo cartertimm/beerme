@@ -184,7 +184,19 @@ public class Profile{
 		onTapBeers = onTap.toArray(onTapBeers);
 		fileAccess.quitAndSave(likedBeers, dislikedBeers, onTapBeers);
 	}
-	
+
+	public static int[] getPreferences(){
+		int[] attributes = new int[5];
+		for (int i = 0; i < likes.size(); i++){
+			for (int j = 0; j < 5; j++)
+				attributes[j] += likes.get(i).getAttributes()[j];
+		}
+
+		for (int i = 0; i < likes.size(); i++)
+			attributes[i] = attributes[i] / likes.size();
+
+		return attributes;
+	}	
 	
 	private static ArrayList<Beer> likes;
 	private static ArrayList<Beer> dislikes;
