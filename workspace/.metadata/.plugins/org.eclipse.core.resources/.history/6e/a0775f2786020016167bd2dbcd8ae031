@@ -18,7 +18,7 @@ public class Profile{
 		//add to likes ArrayList
 		String[] fromFiles = fileAccess.getNames("likes.txt");
 		for (int i = 0; i < fromFiles.length; i++){
-			for (int j = 0; j < beerList.length; j++){
+			for (int j = 0; j < beerList.length; i++){
 				if (beerList[j].getName().equals(fromFiles[i])){
 					likes.add(beerList[j]);
 					break;
@@ -30,7 +30,7 @@ public class Profile{
 		//add to dislikes ArrayList
 		fromFiles = fileAccess.getNames("dislikes.txt");
 		for (int i = 0; i < fromFiles.length; i++){
-			for (int j = 0; j < beerList.length; j++){
+			for (int j = 0; j < beerList.length; i++){
 				if (beerList[j].getName().equals(fromFiles[i])){
 					dislikes.add(beerList[j]);
 					break;
@@ -45,7 +45,7 @@ public class Profile{
 		System.out.println(fromFiles.length);
 		System.out.println(beerList.length);
 		for (int i = 0; i < fromFiles.length; i++){
-			for (int j = 0; j < beerList.length; j++){
+			for (int j = 0; j < beerList.length; i++){
 				if (beerList[j].getName().equals(fromFiles[i])){
 					onTap.add(beerList[j]);
 					break;
