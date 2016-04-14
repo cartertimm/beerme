@@ -510,9 +510,8 @@ public class BeerMeGUI extends JFrame
 			BeerDisplay beer = new BeerDisplay();
 			beer.setBeer(onTap[i]);
 			onTapList.add(beer);
+			onTapList.repaint();
 		}		
-		
-		onTapFullPage.repaint();
 		
 	}
 	

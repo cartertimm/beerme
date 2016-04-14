@@ -502,7 +502,7 @@ public class BeerMeGUI extends JFrame
 		displayBeer(posAttr, negAttr, Profile.getOmits());
 	}
 	
-	public static void loadOnTapList(){
+	public void loadOnTapList(){
 		onTapList.removeAll();
 		Beer[] onTap = Profile.getOnTap();
 		
