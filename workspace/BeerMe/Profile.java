@@ -171,20 +171,14 @@ public class Profile{
 	}
 	
 	public void saveAndQuit() throws IOException{
-		String[] likesNames = new String[likes.size()];
-		String[] dislikesNames = new String[dislikes.size()];
-		String[] onTapNames = new String[onTap.size()];
 		
-		for (int i = 0; i < likes.size(); i++)
-			likesNames[i] = likes.get(i).getName();
-		
-		for (int i = 0; i < dislikes.size(); i++)
-			dislikesNames[i] = dislikes.get(i).getName();
-		
-		for (int i = 0; i < onTap.size(); i++)
-			onTapNames[i] = onTap.get(i).getName();
-		
-		fileAccess.quitAndSave(likesNames, dislikesNames, onTapNames);
+		Beer[] likedBeers = new Beer[likes.size()];
+		Beer[] dislikedBeers = new Beer[dislikes.size()];
+		Beer[] onTapBeers = new Beer[onTap.size()];
+		likedBeers = likes.toArray(likedBeers);
+		dislikedBeers = dislikes.toArray(dislikedBeers);
+		onTapBeers = onTap.toArray(onTapBeers);
+		fileAccess.quitAndSave(likedBeers, dislikedBeers, onTapBeers);
 	}
 	
 	
