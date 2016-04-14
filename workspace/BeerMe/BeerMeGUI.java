@@ -27,6 +27,7 @@ import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
  
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.Collections;
 import java.util.List;
 import java.util.Random;
@@ -144,7 +145,12 @@ public class BeerMeGUI extends JFrame
 		
 		addWindowListener( new WindowAdapter() {
             public void windowClosing(WindowEvent we) {
-                Profile.saveAndQuit();
+                try {
+					Profile.saveAndQuit();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
             }
         } );
         

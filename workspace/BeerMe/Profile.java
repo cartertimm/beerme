@@ -170,7 +170,7 @@ public class Profile{
 		
 	}
 	
-	public void saveAndQuit() throws IOException{
+	public static void saveAndQuit() throws IOException{
 		
 		Beer[] likedBeers = new Beer[likes.size()];
 		Beer[] dislikedBeers = new Beer[dislikes.size()];
@@ -185,5 +185,5 @@ public class Profile{
 	private static ArrayList<Beer> likes;
 	private static ArrayList<Beer> dislikes;
 	private static ArrayList<Beer> onTap;
-	private FileManager fileAccess;
+	private static FileManager fileAccess;
 }
