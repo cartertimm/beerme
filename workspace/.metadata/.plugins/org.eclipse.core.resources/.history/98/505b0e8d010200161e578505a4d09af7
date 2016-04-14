@@ -8,6 +8,8 @@ import java.awt.Font;
 import java.awt.GridBagLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.AdjustmentEvent;
+import java.awt.event.AdjustmentListener;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -19,6 +21,8 @@ import javax.swing.JSlider;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.border.EmptyBorder;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 
 import java.io.FileNotFoundException;
 import java.util.Collections;
@@ -103,20 +107,22 @@ public class BeerMeGUI extends JFrame
 	private JSlider abvSlider = new JSlider(SwingConstants.VERTICAL, 1, 10, 5);
 	private JLabel abvLabel = new JLabel("ABV");
 	
+	private JButton submitFilter = new JButton("Submit");
+	
 	//Beer Recommendation List
 	private JPanel beerReccs = new JPanel();
 	
 		
 	//* On Tap Page
-	private JPanel onTapPage = new JPanel();
-	private JPanel onTapFullPage = new JPanel();
-	private JLabel onTapTitle = new JLabel("On Tap");
+	private static JPanel onTapPage = new JPanel();
+	private static JPanel onTapFullPage = new JPanel();
+	private static JLabel onTapTitle = new JLabel("On Tap");
 	
 	//On Tap List
-	private JPanel onTapList = new JPanel();
+	private static JPanel onTapList = new JPanel();
 	
 	//* Profile Page
-	private JPanel profilePage = new JPanel();
+	private static JPanel profilePage = new JPanel();
 	
 	
 	
@@ -160,6 +166,7 @@ public class BeerMeGUI extends JFrame
 		discoverTab.setCursor(new Cursor(Cursor.HAND_CURSOR));
 		discoverTab.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
+        		displayBeer(Profile.getPositiveAttributes(), Profile.getNegativeAttributes(), Profile.getOmits());
         		CardLayout cl = (CardLayout)(pages.getLayout());
     			cl.show(pages, "discoverPage");
         	}
@@ -206,8 +213,8 @@ public class BeerMeGUI extends JFrame
 		discoverPage.setBackground(new Color(250,243,230));
 		topBar.setLayout(new CardLayout());
 		topBar.setOpaque(false);
-		topBar.setPreferredSize(new Dimension(700,130));
-		topBar.setBorder(new EmptyBorder(10,10,10,10));
+		topBar.setPreferredSize(new Dimension(700,110));
+		topBar.setBorder(new EmptyBorder(0,10,0,10));
 		
 		//Search Bar
 		searchBar.setLayout(new BorderLayout());
@@ -252,38 +259,76 @@ public class BeerMeGUI extends JFrame
 		
 		//Sliders
 		sliderPanel.setLayout(new FlowLayout());
+		sliderPanel.setOpaque(false);
 		
 		bitternessPanel.setLayout(new BorderLayout());
-		bitternessPanel.setPreferredSize(new Dimension(75,80));
+		bitternessPanel.setOpaque(false);
+		bitternessPanel.setPreferredSize(new Dimension(95,100));
 		bitternessPanel.add(bitternessSlider, BorderLayout.CENTER);
+		bitternessLabel.setHorizontalAlignment(JLabel.CENTER);
 		bitternessPanel.add(bitternessLabel, BorderLayout.SOUTH);
+		bitternessSlider.addChangeListener(new ChangeListener() {
+		      public void stateChanged(ChangeEvent e) {
+		          autoAdjustBeers();
+		        }
+		      });
 		sliderPanel.add(bitternessPanel);
 		
 		flavorPanel.setLayout(new BorderLayout());
-		flavorPanel.setPreferredSize(new Dimension(75,80));
+		flavorPanel.setOpaque(false);
+		flavorPanel.setPreferredSize(new Dimension(95,100));
 		flavorPanel.add(flavorSlider, BorderLayout.CENTER);
+		flavorLabel.setHorizontalAlignment(JLabel.CENTER);
 		flavorPanel.add(flavorLabel, BorderLayout.SOUTH);
+		flavorSlider.addChangeListener(new ChangeListener() {
+		      public void stateChanged(ChangeEvent e) {
+		          autoAdjustBeers();
+		        }
+		      });
 		sliderPanel.add(flavorPanel);
 		
 		aromaPanel.setLayout(new BorderLayout());
-		aromaPanel.setPreferredSize(new Dimension(75,80));
+		aromaPanel.setOpaque(false);
+		aromaPanel.setPreferredSize(new Dimension(95,100));
 		aromaPanel.add(aromaSlider, BorderLayout.CENTER);
+		aromaLabel.setHorizontalAlignment(JLabel.CENTER);
 		aromaPanel.add(aromaLabel, BorderLayout.SOUTH);
+		aromaSlider.addChangeListener(new ChangeListener() {
+		      public void stateChanged(ChangeEvent e) {
+		          autoAdjustBeers();
+		        }
+		      });
 		sliderPanel.add(aromaPanel);
 		
 		colorPanel.setLayout(new BorderLayout());
-		colorPanel.setPreferredSize(new Dimension(75,80));
+		colorPanel.setOpaque(false);
+		colorPanel.setPreferredSize(new Dimension(95,100));
 		colorPanel.add(colorSlider, BorderLayout.CENTER);
+		colorLabel.setHorizontalAlignment(JLabel.CENTER);
 		colorPanel.add(colorLabel, BorderLayout.SOUTH);
+		colorSlider.addChangeListener(new ChangeListener() {
+		      public void stateChanged(ChangeEvent e) {
+		          autoAdjustBeers();
+		        }
+		      });
 		sliderPanel.add(colorPanel);
 		
 		abvPanel.setLayout(new BorderLayout());
-		abvPanel.setPreferredSize(new Dimension(75,80));
+		abvPanel.setOpaque(false);
+		abvPanel.setPreferredSize(new Dimension(95,100));
 		abvPanel.add(abvSlider, BorderLayout.CENTER);
+		abvLabel.setHorizontalAlignment(JLabel.CENTER);
 		abvPanel.add(abvLabel, BorderLayout.SOUTH);
+		abvSlider.addChangeListener(new ChangeListener() {
+		      public void stateChanged(ChangeEvent e) {
+		          autoAdjustBeers();
+		        }
+		      });
 		sliderPanel.add(abvPanel);
 		
-		filterBar.add(sliderPanel, BorderLayout.CENTER);
+		sliderPanel.add(submitFilter);
+		
+		filterBar.add(sliderPanel, BorderLayout.EAST);
 		
 		topBar.add(filterBar, "filterBar"); //adds filterBar to topBar
 		
@@ -327,30 +372,7 @@ public class BeerMeGUI extends JFrame
 		//onTapList.setPreferredSize(new Dimension(700,1000));
 		onTapList.setOpaque(false);
 		
-		BeerDisplay beer7 = new BeerDisplay();
-		onTapList.add(beer7);
-		BeerDisplay beer8 = new BeerDisplay();
-		onTapList.add(beer8);
-		BeerDisplay beer9 = new BeerDisplay();
-		onTapList.add(beer9);
-		BeerDisplay beer10 = new BeerDisplay();
-		onTapList.add(beer10);
-		BeerDisplay beer11 = new BeerDisplay();
-		onTapList.add(beer11);
-		BeerDisplay beer12 = new BeerDisplay();
-		onTapList.add(beer12);
-		BeerDisplay beer13 = new BeerDisplay();
-		onTapList.add(beer13);
-		BeerDisplay beer14 = new BeerDisplay();
-		onTapList.add(beer14);
-		BeerDisplay beer15 = new BeerDisplay();
-		onTapList.add(beer15);
-		BeerDisplay beer16 = new BeerDisplay();
-		onTapList.add(beer16);
-		BeerDisplay beer17 = new BeerDisplay();
-		onTapList.add(beer17);
-		BeerDisplay beer18 = new BeerDisplay();
-		onTapList.add(beer18);
+		loadOnTapList();
 		
 		onTapFullPage.add(onTapList, BorderLayout.CENTER);
 		
@@ -396,6 +418,7 @@ public class BeerMeGUI extends JFrame
 		
 		new BeerMeGUI();
 		displayBeer(Profile.getPositiveAttributes(), Profile.getNegativeAttributes(), Profile.getOmits());
+		//System.out.println(Discover.findBeers(Profile.getPositiveAttributes(), Profile.getNegativeAttributes(), Profile.getOmits()).length);
 	}
 	
 	
@@ -418,43 +441,70 @@ public class BeerMeGUI extends JFrame
 		int random6;
 		
 		//Generates 6 UNIQUE random numbers
-		random1 = rand.nextInt(beers.length);
-		do {
-			random2 = rand.nextInt(beers.length);
-		} while(random2 == random1);
-		do {
-			random3 = rand.nextInt(beers.length);
-		} while(random3 == random1 || random3 == random2);
-		do {
-			random4 = rand.nextInt(beers.length);
-		} while(random4 == random1 || random4 == random2 || random4 == random3);
-		do {
-			random5 = rand.nextInt(beers.length);
-		} while(random5 == random1 || random5 == random2 || random5 == random3
-				|| random5 == random4);
-		do {
-			random6 = rand.nextInt(beers.length);
-		} while(random6 == random1 || random6 == random2 || random6 == random3
-				|| random6 == random4 || random6 == random5);
+		if(beers.length >= 1){
+			random1 = rand.nextInt(beers.length);
+			beer1.setBeer(beers[random1]);
+			if(beers.length >= 2){
+				do {
+					random2 = rand.nextInt(beers.length);
+				} while(random2 == random1);
+				beer2.setBeer(beers[random2]);
+				if(beers.length >= 3){
+					do {
+						random3 = rand.nextInt(beers.length);
+					} while(random3 == random1 || random3 == random2);
+					beer3.setBeer(beers[random3]);
+					if(beers.length >= 4){
+						do {
+							random4 = rand.nextInt(beers.length);
+						} while(random4 == random1 || random4 == random2 || random4 == random3);
+						beer4.setBeer(beers[random4]);
+						if(beers.length >= 5){
+							do {
+								random5 = rand.nextInt(beers.length);
+							} while(random5 == random1 || random5 == random2 || random5 == random3
+									|| random5 == random4);
+							beer5.setBeer(beers[random5]);
+							if(beers.length >= 6){
+								do {
+									random6 = rand.nextInt(beers.length);
+								} while(random6 == random1 || random6 == random2 || random6 == random3
+										|| random6 == random4 || random6 == random5);
+								beer6.setBeer(beers[random6]);
+							}
+						}						
+					}
+				}
+			}
+		}
 		
-		
-		//Sets beers using the random numbers to get random beers from the
-		//findBeer function in Discover
-		beer1.setBeer(beers[random1]);
-		beer2.setBeer(beers[random2]);
-		beer3.setBeer(beers[random3]);
-		beer4.setBeer(beers[random4]);
-		beer5.setBeer(beers[random5]);
-		beer6.setBeer(beers[random6]);
 	}
 	
+	public void autoAdjustBeers(){
+		int bitterness = bitternessSlider.getValue();
+		int flavor = flavorSlider.getValue();
+		int aroma = aromaSlider.getValue();
+		int color = colorSlider.getValue();
+		int abv = abvSlider.getValue();
+		
+		int[] posAttr = {bitterness, flavor, aroma, color, abv};
+		int[] negAttr = {64,64,64,64,64};
+		
+		displayBeer(posAttr, negAttr, Profile.getOmits());
+	}
 	
+	public static void loadOnTapList(){
+		onTapList.removeAll();
+		Beer[] onTap = Profile.getOnTap();
+		
+		for(int i=0; i<onTap.length; i++){
+			BeerDisplay beer = new BeerDisplay();
+			beer.setBeer(onTap[i]);
+			onTapList.add(beer);
+		}		
+		onTapList.repaint();
+	}
 	
-	
-	
-	
-	
-	
-	
+
 	
 }

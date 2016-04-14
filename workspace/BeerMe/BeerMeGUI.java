@@ -10,6 +10,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.AdjustmentEvent;
 import java.awt.event.AdjustmentListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -139,6 +141,13 @@ public class BeerMeGUI extends JFrame
 		setLocationRelativeTo(null);
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		/*
+		addWindowListener( new WindowAdapter() {
+            public void windowClosing(WindowEvent we) {
+                FileManager.quitAndSave(Profile.getLikes(), Profile.getDislikes(), Profile.getOnTap());
+            }
+        } );
+        */
 		
 		//Main Panel Setup
 		mainPanel.setLayout(new BorderLayout());
