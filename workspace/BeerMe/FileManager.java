@@ -39,6 +39,7 @@ public class FileManager {
     	//read into toReturn
     	String[] parts;
     	parts = filename.split("\\.");
+    	//len--;	//NEW
 		if (parts[1].equals("csv")) {
 			//CSV FILE
 			len--;
