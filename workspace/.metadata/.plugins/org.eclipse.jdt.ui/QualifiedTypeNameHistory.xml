@@ -9,4 +9,6 @@
 <fullyQualifiedTypeName name="java.awt.event.AdjustmentEvent"/>
 <fullyQualifiedTypeName name="javax.swing.event.ChangeListener"/>
 <fullyQualifiedTypeName name="javax.swing.event.ChangeEvent"/>
+<fullyQualifiedTypeName name="java.awt.event.WindowEvent"/>
+<fullyQualifiedTypeName name="java.awt.event.WindowAdapter"/>
 </qualifiedTypeNameHistroy>

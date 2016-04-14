@@ -1,0 +1,16 @@
+package bin;
+
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
+public class OnTapListDisplay extends JPanel
+{
+	
+	private JPanel onTapFullPage = new JPanel();
+	private JLabel onTapTitle = new JLabel("On Tap");
+	private JPanel onTapList = new JPanel();
+	
+	
+	
+
+}
