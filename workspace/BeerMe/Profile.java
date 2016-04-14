@@ -51,52 +51,64 @@ public class Profile{
 		onTap.trimToSize();
 	}
 	
-	public Beer[] getLikes(){
+	public static Beer[] getLikes(){
 		Beer[] returnArr = new Beer[likes.size()];
 		returnArr = likes.toArray(returnArr);
 		return returnArr;
 	}
 	
-	public Beer[] getDislikes(){
+	public static Beer[] getDislikes(){
 		Beer[] returnArr = new Beer[dislikes.size()];
 		returnArr = dislikes.toArray(returnArr);
 		return returnArr;
 	}
 	
-	public Beer[] getOnTap(){
+	public static Beer[] getOnTap(){
 		Beer[] returnArr = new Beer[onTap.size()];
 		returnArr = onTap.toArray(returnArr);
 		return returnArr;
 	}
 	
-	public void addLike(Beer beer){
+	public static void addLike(Beer beer){
 		likes.add(beer);
 		likes.trimToSize();
 	}
 	
-	public void addDislike(Beer beer){
+	public static void addDislike(Beer beer){
 		dislikes.add(beer);
 		dislikes.trimToSize();
 	}
 	
-	public void addOnTap(Beer beer){
+	public static void addOnTap(Beer beer){
 		onTap.add(beer);
 		onTap.trimToSize();
 	}
 	
-	public void removeLike(Beer beer){
+	public static void removeLike(Beer beer){
 		likes.remove(beer);
 		likes.trimToSize();
 	}
 	
-	public void removeDislike(Beer beer){
+	public static void removeDislike(Beer beer){
 		dislikes.remove(beer);
 		dislikes.trimToSize();
 	}
 	
-	public void removeOnTap(Beer beer){
+	public static void removeOnTap(Beer beer){
 		onTap.remove(beer);
 		onTap.trimToSize();
+	}
+	
+	public static Boolean searchLike(Beer beer){
+		return likes.contains(beer);
+	}
+	
+	public static Boolean searchDislike(Beer beer){
+		return dislikes.contains(beer);
+	}
+	
+	public static Boolean searchOnTap(Beer beer){
+		return onTap.contains(beer);
 	}
 	
 	public static int[] getPositiveAttributes(){
@@ -156,11 +168,6 @@ public class Profile{
 		returnArr = omits.toArray(returnArr);
 		return returnArr;
 		
-		/*
-		Beer[] returnArr = new Beer[beerList.size()];
-		returnArr = beerList.toArray(returnArr);
-		return returnArr;
-		*/
 	}
 	
 	public void saveAndQuit() throws IOException{
