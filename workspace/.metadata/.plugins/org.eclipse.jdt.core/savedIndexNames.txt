@@ -1,37 +1,16 @@
-<<<<<<< HEAD
-INDEX VERSION 1.127+C:\Users\Carter\Gonzaga\S16\224\beerme\workspace\.metadata\.plugins\org.eclipse.jdt.core
-1238962295.index
-2445747412.index
-249459504.index
-2164123280.index
-882139543.index
-1910228820.index
-3383392487.index
-2585328351.index
-52205867.index
-1755913921.index
-1063230161.index
-3951094714.index
-1492968368.index
-919737581.index
-4210772659.index
-2474304018.index
-3449116704.index
-1269277382.index
-=======
 INDEX VERSION 1.127+/Users/jtwheadon/Documents/BeerMe/beerme/workspace/.metadata/.plugins/org.eclipse.jdt.core
 2353848150.index
-3712507179.index
 1819685514.index
+3712507179.index
 811023603.index
 1665731504.index
-2587947521.index
 3450454389.index
-1271342938.index
-156905802.index
-2713797458.index
-1666608670.index
 979578155.index
+2587947521.index
+1666608670.index
+2713797458.index
+156905802.index
+1271342938.index
 314395480.index
 2488916673.index
 1384487945.index
@@ -47,4 +26,3 @@ INDEX VERSION 1.127+/Users/jtwheadon/Documents/BeerMe/beerme/workspace/.metadata
 2350957546.index
 1823103826.index
 4158903250.index
->>>>>>> b5cd8e16c67082ae9c99a580e3419ab8c6582cd3

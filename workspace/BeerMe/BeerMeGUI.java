@@ -166,6 +166,7 @@ public class BeerMeGUI extends JFrame
 		discoverTab.setCursor(new Cursor(Cursor.HAND_CURSOR));
 		discoverTab.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
+        		displayBeer(Profile.getPositiveAttributes(), Profile.getNegativeAttributes(), Profile.getOmits());
         		CardLayout cl = (CardLayout)(pages.getLayout());
     			cl.show(pages, "discoverPage");
         	}
@@ -501,6 +502,7 @@ public class BeerMeGUI extends JFrame
 			beer.setBeer(onTap[i]);
 			onTapList.add(beer);
 		}		
+		onTapList.repaint();
 	}
 	
 
