@@ -141,13 +141,13 @@ public class BeerMeGUI extends JFrame
 		setLocationRelativeTo(null);
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		/*
+		
 		addWindowListener( new WindowAdapter() {
             public void windowClosing(WindowEvent we) {
-                FileManager.quitAndSave(Profile.getLikes(), Profile.getDislikes(), Profile.getOnTap());
+                Profile.saveAndQuit();
             }
         } );
-        */
+        
 		
 		//Main Panel Setup
 		mainPanel.setLayout(new BorderLayout());

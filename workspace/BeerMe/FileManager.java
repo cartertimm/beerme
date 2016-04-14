@@ -61,7 +61,7 @@ public class FileManager {
 	}
 	
 	
-	public void quitAndSave (String[] likes, String[] dislikes, String[] onTap) throws IOException {
+	public void quitAndSave (Beer[] likes, Beer[] dislikes, Beer[] onTap) throws IOException {
 		//writer for likes
 		File l = new File("likes.txt");
 	    FileWriter lWriter = new FileWriter (l,false);
@@ -78,13 +78,13 @@ public class FileManager {
 	    PrintWriter oPrinter = new PrintWriter (oWriter);
 		
 	    for (int i = 0; i < likes.length; i++) {
-	    	lPrinter.println(likes[i]);
+	    	lPrinter.println(likes[i].getName());
 	    }
 	    for (int j = 0; j < dislikes.length; j++) {
-	    	dPrinter.println(dislikes[j]);
+	    	dPrinter.println(dislikes[j].getName());
 	    }
 	    for (int k = 0; k < onTap.length; k++) {
-	    	oPrinter.println(onTap[k]);
+	    	oPrinter.println(onTap[k].getName());
 	    }
 	    
 	    lPrinter.close();

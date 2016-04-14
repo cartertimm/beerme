@@ -1,0 +1,7 @@
+eclipse.preferences.version=1
+environment/workspace/PATH/delimiter=;
+environment/workspace/PATH/operation=replace
+environment/workspace/PATH/value=C\:/Java/jdk1.8.0_66/bin/../jre/bin/server;C\:/Java/jdk1.8.0_66/bin/../jre/bin;C\:/Java/jdk1.8.0_66/bin/../jre/lib/amd64;C\:\\Java\\jdk1.8.0_66\\bin;C\:\\ProgramData\\Oracle\\Java\\javapath;C\:\\WINDOWS\\system32;C\:\\WINDOWS;C\:\\WINDOWS\\System32\\Wbem;C\:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\;C\:\\Program Files (x86)\\ATI Technologies\\ATI.ACE\\Core-Static;C\:\\Program Files (x86)\\Skype\\Phone\\;C\:\\WINDOWS\\system32;C\:\\MinGW\\bin;
+environment/workspace/append=true
+environment/workspace/appendContributed=true
+macros/workspace=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?>\r\n<macros/>\r\n

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 INDEX VERSION 1.127+/Users/jtwheadon/Documents/BeerMe/beerme/workspace/.metadata/.plugins/org.eclipse.jdt.core
 2353848150.index
 3712507179.index
@@ -25,3 +26,24 @@ INDEX VERSION 1.127+/Users/jtwheadon/Documents/BeerMe/beerme/workspace/.metadata
 2350957546.index
 1823103826.index
 4158903250.index
+=======
+INDEX VERSION 1.127 OT2+C:\Users\Elijah\Documents\CPSC 224\beerme\workspace\.metadata\.plugins\org.eclipse.jdt.core
+4005626029.index
+2342125519.index
+2224235009.index
+1284119561.index
+3734683570.index
+2453212802.index
+2003277320.index
+4129783323.index
+1191327013.index
+3100690231.index
+4046309208.index
+1700878149.index
+558171784.index
+160703982.index
+1294828719.index
+1238962295.index
+397359800.index
+3473723854.index
+>>>>>>> 612a54407e3bdb744fed563fdbaed405a21162be
