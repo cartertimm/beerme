@@ -40,6 +40,7 @@ public class Profile{
 		
 		//add to onTap ArrayList
 		fromFiles = fileAccess.getNames("onTap.txt");
+		System.out.println(Arrays.toString(fromFiles));
 		for (int i = 0; i < fromFiles.length; i++){
 			for (int j = 0; j < beerList.length; i++){
 				if (beerList[j].getName().equals(fromFiles[i])){
