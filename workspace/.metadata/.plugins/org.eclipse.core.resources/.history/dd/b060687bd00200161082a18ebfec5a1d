@@ -21,7 +21,7 @@ public class Discover{
 		beerList = beers.toArray(beerList);
 	}
 	
-	public static Beer[] search(String name){
+	public Beer[] search(String name){
 		ArrayList<Beer> matches = new ArrayList<Beer>();
 		for (int i = 0; i < beerList.length; i++){
 			if (beerList[i].getName().toUpperCase().contains(name.toUpperCase()))
