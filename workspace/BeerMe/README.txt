@@ -1,3 +1,5 @@
+Carter -- add getPreferences() in class Profile -- returns int[] of combined likes and dislikes.
+
 If we need this in the future... I found it necessary to change the 
 way we convert ArrayList to an Array.
 

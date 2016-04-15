@@ -19,4 +19,12 @@
 >>>>>>> 5ed1807100f7920f9f16936d41fd035d3bac3620
 2016-04-13 21:55:38,518 [main] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache file is out-of-date. Remote download required.
 >>>>>>> d622c7fa96c28d4f4b913e205de4960389798abd
+<<<<<<< HEAD
 2016-04-14 12:42:35,304 [main] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache file is out-of-date. Remote download required.
+=======
+2016-04-14 13:01:22,895 [main] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache file is not out-of-date. No remote download required.
+2016-04-14 13:23:05,820 [main] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache file is not out-of-date. No remote download required.
+2016-04-14 13:59:44,307 [main] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache file is not out-of-date. No remote download required.
+2016-04-14 14:06:24,860 [main] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache file is not out-of-date. No remote download required.
+2016-04-14 16:33:41,503 [main] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache file is not out-of-date. No remote download required.
+>>>>>>> 965506c7d581e1b66bbcd17cc1ffff9a5d2dc7c5

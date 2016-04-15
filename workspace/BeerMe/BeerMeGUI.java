@@ -27,6 +27,7 @@ import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
  
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.Collections;
 import java.util.List;
 import java.util.Random;
@@ -141,13 +142,18 @@ public class BeerMeGUI extends JFrame
 		setLocationRelativeTo(null);
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		/*
+		
 		addWindowListener( new WindowAdapter() {
             public void windowClosing(WindowEvent we) {
-                FileManager.quitAndSave(Profile.getLikes(), Profile.getDislikes(), Profile.getOnTap());
+                try {
+					Profile.saveAndQuit();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
             }
         } );
-        */
+        
 		
 		//Main Panel Setup
 		mainPanel.setLayout(new BorderLayout());
@@ -503,17 +509,20 @@ public class BeerMeGUI extends JFrame
 	}
 	
 	public static void loadOnTapList(){
+		onTapFullPage.repaint();
 		onTapList.removeAll();
+		onTapList.repaint();
+		onTapList.revalidate();
 		Beer[] onTap = Profile.getOnTap();
 		
 		for(int i=0; i<onTap.length; i++){
 			BeerDisplay beer = new BeerDisplay();
 			beer.setBeer(onTap[i]);
 			onTapList.add(beer);
-		}		
-		onTapList.repaint();
+		}
+
 	}
-	
+
 
 	
 }

@@ -11,4 +11,5 @@
 <fullyQualifiedTypeName name="javax.swing.event.ChangeEvent"/>
 <fullyQualifiedTypeName name="java.awt.event.WindowEvent"/>
 <fullyQualifiedTypeName name="java.awt.event.WindowAdapter"/>
+<fullyQualifiedTypeName name="java.util.Arrays"/>
 </qualifiedTypeNameHistroy>
