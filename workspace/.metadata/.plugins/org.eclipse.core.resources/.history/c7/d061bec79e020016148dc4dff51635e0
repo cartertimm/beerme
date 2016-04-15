@@ -512,7 +512,6 @@ public class BeerMeGUI extends JFrame
 		onTapFullPage.repaint();
 		onTapList.removeAll();
 		onTapList.repaint();
-		onTapList.revalidate();
 		Beer[] onTap = Profile.getOnTap();
 		
 		for(int i=0; i<onTap.length; i++){
@@ -520,9 +519,11 @@ public class BeerMeGUI extends JFrame
 			beer.setBeer(onTap[i]);
 			onTapList.add(beer);
 		}
-
+		
+		
+		
 	}
-
+	
 
 	
 }

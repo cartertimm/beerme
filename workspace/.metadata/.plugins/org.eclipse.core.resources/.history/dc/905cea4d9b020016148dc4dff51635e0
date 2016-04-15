@@ -511,18 +511,18 @@ public class BeerMeGUI extends JFrame
 	public static void loadOnTapList(){
 		onTapFullPage.repaint();
 		onTapList.removeAll();
-		onTapList.repaint();
-		onTapList.revalidate();
 		Beer[] onTap = Profile.getOnTap();
 		
 		for(int i=0; i<onTap.length; i++){
 			BeerDisplay beer = new BeerDisplay();
 			beer.setBeer(onTap[i]);
 			onTapList.add(beer);
-		}
-
+		}		
+		
+		
+		
 	}
-
+	
 
 	
 }
