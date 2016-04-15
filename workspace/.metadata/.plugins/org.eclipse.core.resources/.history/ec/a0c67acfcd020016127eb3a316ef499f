@@ -488,10 +488,10 @@ public class BeerMeGUI extends JFrame
 		
 		JScrollPane profileScrollPane = new JScrollPane(profileFullPage,
 				JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
-		profileScrollPane.setSize(new Dimension(700,0)); //Sets the width of scroll pane
-		profileScrollPane.setBorder(new EmptyBorder(0,0,0,0));
-		profileScrollPane.getViewport().setOpaque(false);
-		profileScrollPane.setOpaque(false);
+        listScrollPane.setSize(new Dimension(700,0)); //Sets the width of scroll pane
+        listScrollPane.setBorder(new EmptyBorder(0,0,0,0));
+        listScrollPane.getViewport().setOpaque(false);
+        listScrollPane.setOpaque(false);
         
 		profilePage.add(profileScrollPane, BorderLayout.CENTER);
 		

@@ -53,27 +53,6 @@ public class BeerDisplay extends JPanel{
 		feedBackPanel.setLayout(new FlowLayout());
 		feedBackPanel.setOpaque(false);
 		
-		like.setIcon(new ImageIcon("bin/likeOption.png"));
-		like.setBorder(new EmptyBorder(0,15,0,15));
-		like.setContentAreaFilled(false);
-		like.setCursor(new Cursor(Cursor.HAND_CURSOR));
-		like.addActionListener(new ActionListener() {
-        	public void actionPerformed(ActionEvent e) {
-        		if(Profile.searchLike(beer)){
-        			Profile.removeLike(beer);
-        			like.setIcon(new ImageIcon("bin/likeOption.png"));
-        			BeerMeGUI.loadLikesList();
-        		}
-        		else{
-        			Profile.addLike(beer);
-        			like.setIcon(new ImageIcon("bin/likeOptionSelected.png"));
-        			BeerMeGUI.loadLikesList();
-        		}
-        	}
-        });
-		feedBackPanel.add(like);
-		
-		
 		onTap.setIcon(new ImageIcon("bin/onTapOption.png"));
 		onTap.setBorder(new EmptyBorder(0,15,0,15));
 		onTap.setContentAreaFilled(false);
@@ -94,7 +73,23 @@ public class BeerDisplay extends JPanel{
         });
 		feedBackPanel.add(onTap);
 		
-		
+		like.setIcon(new ImageIcon("bin/likeOption.png"));
+		like.setBorder(new EmptyBorder(0,15,0,15));
+		like.setContentAreaFilled(false);
+		like.setCursor(new Cursor(Cursor.HAND_CURSOR));
+		like.addActionListener(new ActionListener() {
+        	public void actionPerformed(ActionEvent e) {
+        		if(Profile.searchLike(beer)){
+        			Profile.removeLike(beer);
+        			like.setIcon(new ImageIcon("bin/likeOption.png"));
+        		}
+        		else{
+        			Profile.addLike(beer);
+        			like.setIcon(new ImageIcon("bin/likeOptionSelected.png"));
+        		}
+        	}
+        });
+		feedBackPanel.add(like);
 		
 		dislike.setIcon(new ImageIcon("bin/disLikeOption.png"));
 		dislike.setBorder(new EmptyBorder(0,15,0,15));
@@ -102,15 +97,13 @@ public class BeerDisplay extends JPanel{
 		dislike.setCursor(new Cursor(Cursor.HAND_CURSOR));
 		dislike.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
-        		if(Profile.searchDislike(beer)){
+        		if(Profile.searchLike(beer)){
         			Profile.removeDislike(beer);
         			dislike.setIcon(new ImageIcon("bin/disLikeOption.png"));
-        			BeerMeGUI.loadDislikesList();
         		}
         		else{
         			Profile.addDislike(beer);
         			dislike.setIcon(new ImageIcon("bin/disLikeOptionSelected.png"));
-        			BeerMeGUI.loadDislikesList();
         		}
         	}
         });

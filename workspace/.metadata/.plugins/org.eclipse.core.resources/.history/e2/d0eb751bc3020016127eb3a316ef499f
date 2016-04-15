@@ -62,12 +62,10 @@ public class BeerDisplay extends JPanel{
         		if(Profile.searchLike(beer)){
         			Profile.removeLike(beer);
         			like.setIcon(new ImageIcon("bin/likeOption.png"));
-        			BeerMeGUI.loadLikesList();
         		}
         		else{
         			Profile.addLike(beer);
         			like.setIcon(new ImageIcon("bin/likeOptionSelected.png"));
-        			BeerMeGUI.loadLikesList();
         		}
         	}
         });
@@ -102,15 +100,13 @@ public class BeerDisplay extends JPanel{
 		dislike.setCursor(new Cursor(Cursor.HAND_CURSOR));
 		dislike.addActionListener(new ActionListener() {
         	public void actionPerformed(ActionEvent e) {
-        		if(Profile.searchDislike(beer)){
+        		if(Profile.searchLike(beer)){
         			Profile.removeDislike(beer);
         			dislike.setIcon(new ImageIcon("bin/disLikeOption.png"));
-        			BeerMeGUI.loadDislikesList();
         		}
         		else{
         			Profile.addDislike(beer);
         			dislike.setIcon(new ImageIcon("bin/disLikeOptionSelected.png"));
-        			BeerMeGUI.loadDislikesList();
         		}
         	}
         });

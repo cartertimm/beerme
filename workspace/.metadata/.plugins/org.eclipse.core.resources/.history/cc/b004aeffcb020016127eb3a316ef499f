@@ -449,20 +449,8 @@ public class BeerMeGUI extends JFrame
 		toggleButtons.setOpaque(false);
 		
 		likeButton.setPreferredSize(new Dimension(300,75));
-		likeButton.addActionListener(new ActionListener() {
-        	public void actionPerformed(ActionEvent e) {   		
-        		CardLayout cl = (CardLayout)(togglePanel.getLayout());
-    			cl.show(togglePanel, "likes");
-        	}
-        });
 		toggleButtons.add(likeButton);
 		dislikeButton.setPreferredSize(new Dimension(300,75));
-		dislikeButton.addActionListener(new ActionListener() {
-        	public void actionPerformed(ActionEvent e) {   		
-        		CardLayout cl = (CardLayout)(togglePanel.getLayout());
-    			cl.show(togglePanel, "dislikes");
-        	}
-        });
 		toggleButtons.add(dislikeButton);
 		
 		feedbackPanel.add(toggleButtons, BorderLayout.NORTH);
@@ -473,27 +461,16 @@ public class BeerMeGUI extends JFrame
 		
 		likesList.setLayout(new FlowLayout());
 		likesList.setOpaque(false);
-		loadLikesList();
 		togglePanel.add(likesList, "likes");
 		
 		dislikesList.setLayout(new FlowLayout());
-		dislikesList.setOpaque(false);
-		loadDislikesList();
 		togglePanel.add(dislikesList, "dislikes");
 		
 		feedbackPanel.add(togglePanel, BorderLayout.CENTER);
 		
 		
 		profileFullPage.add(feedbackPanel, BorderLayout.CENTER);
-		
-		JScrollPane profileScrollPane = new JScrollPane(profileFullPage,
-				JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
-		profileScrollPane.setSize(new Dimension(700,0)); //Sets the width of scroll pane
-		profileScrollPane.setBorder(new EmptyBorder(0,0,0,0));
-		profileScrollPane.getViewport().setOpaque(false);
-		profileScrollPane.setOpaque(false);
-        
-		profilePage.add(profileScrollPane, BorderLayout.CENTER);
+		profilePage.add(profileFullPage, BorderLayout.CENTER);
 		
 		
 		
@@ -602,44 +579,14 @@ public class BeerMeGUI extends JFrame
 		onTapList.removeAll();
 		onTapList.repaint();
 		onTapList.revalidate();
+		Beer[] onTap = Profile.getOnTap();
 		
-		Beer[] onTap = Profile.getOnTap();		
 		for(int i=0; i<onTap.length; i++){
 			BeerDisplay beer = new BeerDisplay();
 			beer.setBeer(onTap[i]);
 			onTapList.add(beer);
 		}
 
-	}
-	
-	public static void loadLikesList(){
-		profileFullPage.repaint();
-		likesList.removeAll();
-		likesList.repaint();
-		likesList.revalidate();
-		
-		Beer[] likes = Profile.getLikes();
-		for(int i=0; i<likes.length; i++){
-			BeerDisplay beer = new BeerDisplay();
-			beer.setBeer(likes[i]);
-			likesList.add(beer);
-		}
-		
-	}
-	
-	public static void loadDislikesList(){
-		profileFullPage.repaint();
-		dislikesList.removeAll();
-		dislikesList.repaint();
-		dislikesList.revalidate();
-		
-		Beer[] dislikes = Profile.getDislikes();
-		for(int i=0; i<dislikes.length; i++){
-			BeerDisplay beer = new BeerDisplay();
-			beer.setBeer(dislikes[i]);
-			dislikesList.add(beer);
-		}
-		
 	}
 
 

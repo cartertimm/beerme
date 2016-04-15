@@ -473,27 +473,16 @@ public class BeerMeGUI extends JFrame
 		
 		likesList.setLayout(new FlowLayout());
 		likesList.setOpaque(false);
-		loadLikesList();
 		togglePanel.add(likesList, "likes");
 		
 		dislikesList.setLayout(new FlowLayout());
-		dislikesList.setOpaque(false);
-		loadDislikesList();
 		togglePanel.add(dislikesList, "dislikes");
 		
 		feedbackPanel.add(togglePanel, BorderLayout.CENTER);
 		
 		
 		profileFullPage.add(feedbackPanel, BorderLayout.CENTER);
-		
-		JScrollPane profileScrollPane = new JScrollPane(profileFullPage,
-				JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
-		profileScrollPane.setSize(new Dimension(700,0)); //Sets the width of scroll pane
-		profileScrollPane.setBorder(new EmptyBorder(0,0,0,0));
-		profileScrollPane.getViewport().setOpaque(false);
-		profileScrollPane.setOpaque(false);
-        
-		profilePage.add(profileScrollPane, BorderLayout.CENTER);
+		profilePage.add(profileFullPage, BorderLayout.CENTER);
 		
 		
 		
@@ -633,7 +622,7 @@ public class BeerMeGUI extends JFrame
 		dislikesList.repaint();
 		dislikesList.revalidate();
 		
-		Beer[] dislikes = Profile.getDislikes();
+		Beer[] dislikes = Profile.getLikes();
 		for(int i=0; i<dislikes.length; i++){
 			BeerDisplay beer = new BeerDisplay();
 			beer.setBeer(dislikes[i]);
