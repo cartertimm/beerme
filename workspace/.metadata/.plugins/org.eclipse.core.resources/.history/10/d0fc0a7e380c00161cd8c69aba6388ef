@@ -110,13 +110,11 @@ public class BeerDisplay extends JPanel{
         		if(Profile.searchLike(beer)){
         			Profile.removeLike(beer);
         			like.setIcon(new ImageIcon("bin/likeOption.png"));
-        			BeerMeGUI.loadProfilePrefs();
         			BeerMeGUI.loadLikesList();
         		}
         		else{
         			Profile.addLike(beer);
         			like.setIcon(new ImageIcon("bin/likeOptionSelected.png"));
-        			BeerMeGUI.loadProfilePrefs();
         			BeerMeGUI.loadLikesList();
         		}
         	}

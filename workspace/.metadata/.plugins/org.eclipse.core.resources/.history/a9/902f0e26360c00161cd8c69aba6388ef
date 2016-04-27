@@ -89,7 +89,8 @@ public class BeerDisplay extends JPanel{
 		bitterLabel.setFont(new Font(bitterLabelFont.getName(), Font.PLAIN, 8));
 		bitterLabel.setHorizontalAlignment(JLabel.CENTER);
 		bitterness.add(bitterLabel,BorderLayout.SOUTH);
-		beerAtts.add(bitterness,BorderLayout.WEST);	
+		beerAtts.add(bitterness,BorderLayout.WEST);
+		
 		
 		add(beerAtts,BorderLayout.NORTH);
 
@@ -110,13 +111,11 @@ public class BeerDisplay extends JPanel{
         		if(Profile.searchLike(beer)){
         			Profile.removeLike(beer);
         			like.setIcon(new ImageIcon("bin/likeOption.png"));
-        			BeerMeGUI.loadProfilePrefs();
         			BeerMeGUI.loadLikesList();
         		}
         		else{
         			Profile.addLike(beer);
         			like.setIcon(new ImageIcon("bin/likeOptionSelected.png"));
-        			BeerMeGUI.loadProfilePrefs();
         			BeerMeGUI.loadLikesList();
         		}
         	}

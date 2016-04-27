@@ -471,7 +471,7 @@ public class BeerMeGUI extends JFrame
 		
 		//User Preferences
 		userPrefPanel.setLayout(new BorderLayout());
-		userPrefPanel.setBorder(new EmptyBorder(5,50,40,70));
+		userPrefPanel.setBorder(new EmptyBorder(5,50,40,90));
 		userPrefPanel.setOpaque(false);
 		
 		abv.setLayout(new BorderLayout());

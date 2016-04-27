@@ -130,13 +130,13 @@ public class BeerMeGUI extends JFrame
 	private static JLabel profileTitle = new JLabel("Your Profile");
 	
 	private static JPanel userPrefPanel = new JPanel();
-	private static JPanel bitterness = new JPanel();
-	private static JLabel bitterScale = new JLabel();
-	private static JLabel bitterLabel = new JLabel("Bitterness");
-	private static JLabel beerPic = new JLabel();
-	private static JPanel abv = new JPanel();
-	private static JLabel percentage = new JLabel();
-	private static JLabel userAbvLabel = new JLabel("ABV");
+	private JPanel bitterness = new JPanel();
+	private JLabel bitterScale = new JLabel();
+	private JLabel bitterLabel = new JLabel("Bitterness");
+	private JLabel beerPic = new JLabel();
+	private JPanel abv = new JPanel();
+	private JLabel percentage = new JLabel();
+	private JLabel userAbvLabel = new JLabel("ABV");
 	
 	private static JPanel feedbackPanel = new JPanel();
 	private static JPanel toggleButtons = new JPanel();
@@ -471,7 +471,7 @@ public class BeerMeGUI extends JFrame
 		
 		//User Preferences
 		userPrefPanel.setLayout(new BorderLayout());
-		userPrefPanel.setBorder(new EmptyBorder(5,50,40,70));
+		userPrefPanel.setBorder(new EmptyBorder(5,50,40,90));
 		userPrefPanel.setOpaque(false);
 		
 		abv.setLayout(new BorderLayout());
@@ -503,8 +503,7 @@ public class BeerMeGUI extends JFrame
 		bitterLabel.setFont(new Font(bitterLabelFont.getName(), Font.PLAIN, 15));
 		bitterLabel.setHorizontalAlignment(JLabel.CENTER);
 		bitterness.add(bitterLabel,BorderLayout.SOUTH);
-		userPrefPanel.add(bitterness,BorderLayout.WEST);
-		loadProfilePrefs();
+		userPrefPanel.add(bitterness,BorderLayout.WEST);	
 		
 		profilePageTop.add(userPrefPanel,BorderLayout.CENTER);
 		
@@ -736,16 +735,7 @@ public class BeerMeGUI extends JFrame
 	}
 	
 	public static void loadProfilePrefs(){
-		profileFullPage.repaint();
 		
-		String bitterness = Profile.getPositiveAttributes()[0] + "/10";
-		bitterScale.setText(bitterness);
-		
-		String beerPicPath = "bin/" + Profile.getPositiveAttributes()[3] + "big.png";
-		beerPic.setIcon(new ImageIcon(beerPicPath)); //Beer Color
-		
-		String abvPercentage = "~" + Profile.getPositiveAttributes()[4] + "%";
-		percentage.setText(abvPercentage);
 	}
 	
 	public static void loadLikesList(){
